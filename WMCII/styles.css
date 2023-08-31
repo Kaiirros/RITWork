@@ -1,19 +1,17 @@
 
-
 #name {
-    width: 500px;
-    padding: 10px;
+    width: 50%;
     text-align: center;
     font: bold;
-    font-size: 90px;
-    border: 10px;
-    border-style: dashed;
-    align-self: auto;
+    font-size: 7em;
+    grid-area: name;
+    justify-self: right;
 }
 
 .experience {
-    height: 360px;
-    width: 360px;
+    height: 8em;
+    width: 8em;
+    grid-area: experience;
     background-color: #A85CE3;
     border-radius: 50%;
     display: flex;
@@ -21,14 +19,18 @@
     align-items: center;
     justify-content: center;
 
+    grid-column: 1/1;
+
 
     box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
     
   }
 
 .about {
-    height: 300px;
-    width: 300px;
+    height: 6em;
+    width: 6em;
+    grid-area: about;
+    grid-column: 2/4;
     background-color: #FDD672;
     border-radius: 50%;
     display: flex;
@@ -39,8 +41,11 @@
   }
 
   .projects {
-    height: 400px;
-    width: 400px;
+    height: 10em;
+    width: 10em;
+    grid-area: projects;
+    grid-column: 1/4;
+    grid-row: 2/2;
     background-color: #FF6565;
     border-radius: 50%;
     display: flex;
@@ -48,17 +53,28 @@
     justify-content: center;
     box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
 
+
   }
 
 .text {
     font-family: 'Hermeneus One', sans-serif;                                              
-    font-size: 55px;
+    font-size: 3em;
 }
 
-#flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+#grid {
+    display: grid;
+    grid-template-areas: 
+    ' experience - - about '
+    ' - name - projects ';
+    
+    padding: 5%;
+    grid-template-columns: max-content;
+    grid-template-rows:max-content;
+    align-content: stretch;
+    align-items: stretch;
+
+    justify-content: center;
+    justify-items:flex-start;
 
     border: 10px dotted red;
     
