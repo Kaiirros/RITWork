@@ -1,0 +1,65 @@
+
+
+#name {
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+    font: bold;
+    font-size: 90px;
+    border: 10px;
+    border-style: dashed;
+    align-self: auto;
+}
+
+.experience {
+    height: 360px;
+    width: 360px;
+    background-color: #A85CE3;
+    border-radius: 50%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+    
+  }
+
+.about {
+    height: 300px;
+    width: 300px;
+    background-color: #FDD672;
+    border-radius: 50%;
+    display: flex;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .projects {
+    height: 400px;
+    width: 400px;
+    background-color: #FF6565;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+
+  }
+
+.text {
+    font-family: 'Hermeneus One', sans-serif;                                              
+    font-size: 55px;
+}
+
+#flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    border: 10px dotted red;
+    
+}
