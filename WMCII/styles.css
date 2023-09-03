@@ -1,81 +1,99 @@
 
+html {
+  background: lightgray;
+}
+
+
 #name {
-    width: 50%;
     text-align: center;
     font: bold;
-    font-size: 7em;
-    grid-area: name;
-    justify-self: right;
+    font-size: 3em;
+
 }
 
 .experience {
-    height: 8em;
-    width: 8em;
-    grid-area: experience;
+    width: 200px;
+    height: 200px;
+    padding: 10%;
+
     background-color: #A85CE3;
-    border-radius: 50%;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-
-    grid-column: 1/1;
-
-
-    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
     
   }
 
 .about {
-    height: 6em;
-    width: 6em;
-    grid-area: about;
-    grid-column: 2/4;
+    width: 200px;
+    height: 200px;
+
+
+    padding: 10%;
     background-color: #FDD672;
-    border-radius: 50%;
-    display: flex;
-    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
-    align-items: center;
-    justify-content: center;
 
   }
 
   .projects {
-    height: 10em;
-    width: 10em;
-    grid-area: projects;
-    grid-column: 1/4;
-    grid-row: 2/2;
-    background-color: #FF6565;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+    padding: 10%;
+    width: 300px;
+    height: 300px;
 
+    background-color: #FF6565;
 
   }
 
-.text {
+  #box {
+    display: grid;
+
+    margin-top: 10%;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10%;
+    place-items: center;
+  }
+
+.button {
+  display: flex;
     font-family: 'Hermeneus One', sans-serif;                                              
     font-size: 3em;
-}
+    cursor: pointer;
+    border-radius: 50%;
+    
+    justify-content: center;
+    align-items: center;
+    
+
+  }
+
+  .button:hover {
+    transform: scale(1.25);
+    z-index: 1;
+  }
+
+  .button:active{
+    background-color: #37353553;
+    box-shadow: 0 5px #666;
+    transform: scale(2);
+  }
+
+
 
 #grid {
     display: grid;
-    grid-template-areas: 
-    ' experience - - about '
-    ' - name - projects ';
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
     
-    padding: 5%;
-    grid-template-columns: max-content;
-    grid-template-rows:max-content;
-    align-content: stretch;
-    align-items: stretch;
+    justify-content: space-evenly;
 
-    justify-content: center;
-    justify-items:flex-start;
 
-    border: 10px dotted red;
+    justify-items: center;
+
+    align-items: center;
+
+    grid-template-rows: 1fr 1fr;
+
     
 }
