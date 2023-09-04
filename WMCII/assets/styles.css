@@ -1,0 +1,130 @@
+
+html {
+  background: lightgray;
+}
+
+
+#name {
+    width: 50%;
+    text-align: center;
+    font: bold;
+    font-size: 6em;
+
+
+}
+
+.experience {
+    width: 250px;
+    height: 250px;
+
+    background-color: #A85CE3;
+    
+  }
+
+.about {
+    width: 250px;
+    height: 250px;
+
+    background-color: #FDD672;
+
+  }
+
+  a{
+    all: unset;
+  }
+
+  .projects {
+
+    width: 350px;
+    height: 350px;
+
+    background-color: #FF6565;
+
+  }
+
+  #box {
+    display:grid;
+    min-width: 125%;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10%;
+    place-self: center;
+    place-items: center;
+  }
+  
+
+.button {
+    display: flex;
+    font-family: 'Hermeneus One', sans-serif;                                              
+    font-size: 3em;
+    cursor: pointer;
+
+    box-shadow: 10px 10px 30px grey;
+    border-radius: 50%;
+    
+    place-items: center;
+    place-content: center;
+
+
+    transition: .1s ease;
+  
+  }
+
+  .button:hover {
+    transform: scale(1.25);
+    z-index: 1;
+  }
+
+  .button:active{
+    background-color: #37353553;
+    box-shadow: 0 5px #666;
+    transform: scale(.9);
+  }
+
+
+
+#grid {
+    display: grid;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    place-content: center;
+    place-self: center;
+    place-items: center;
+
+    
+    grid-template-rows: 1fr 1fr;
+}
+
+/* ABOUT ME PAGE CSS */
+
+#aboutgrid {
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+  background-color:#FDD672;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+}
+
+
+#abouttext {
+  grid-column: 2/2;
+}
+
+#aboutside {
+  grid-column: 1/1;
+  background-color: #f5ca5e;
+  align-items: center;
+
+}
+
+img {
+  max-width: 50%;
+  padding: 10%;
+  border-radius: 20%;
+}
