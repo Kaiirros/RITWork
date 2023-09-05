@@ -1,6 +1,9 @@
 
 html {
-  background: lightgray;
+  background-color: #e5e5f7;
+
+  background-size: 20px 20px;
+  background-image:  repeating-linear-gradient(0deg, #e5e5f7, #e5e5f7 1px, #ffffff 1px, #ffffff);
 }
 
 
@@ -105,26 +108,32 @@ html {
 #aboutgrid {
   display: grid;
   grid-template-columns: .5fr 1fr;
-  background-color:#FDD672;
-  place-content: center;
-  place-items: center;
-  place-self: center;
 }
-
 
 #abouttext {
   grid-column: 2/2;
+  padding: 5%;
+  background-color:#FDD672;
 }
 
 #aboutside {
+  display: inherit;
   grid-column: 1/1;
-  background-color: #f5ca5e;
-  align-items: center;
+  background-image: linear-gradient(to right, #e0c171, #FDD672);
+  justify-items: center;
 
+  background-color: #FDD672;
+  background: radial-gradient(circle, transparent 20%, #FDD672 20%, #FDD672 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #FDD672 20%, #FDD672 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#e0c171 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #e0c171 2px, #FDD672 2px) -1px 0;
+  background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+  border: 2em solid #FDD672;
 }
 
 img {
   max-width: 50%;
-  padding: 10%;
   border-radius: 20%;
+  padding: 10%;
+}
+
+p {
+  font-size: 1.5em;
 }
