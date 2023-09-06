@@ -1,0 +1,23 @@
+
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+    width: 100%;
+    background-color: rgb(128, 195, 230);
+    border: .1rem solid black;
+    margin: 0;
+    padding: 0;
+
+    
+}
+
+li {
+    display: inline-block;
+    padding: 1rem;
+}
+
+li a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--Daniel McKee ISTE240-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .col {
+            border: .2rem solid blue;
+            margin: .5rem;
+            padding: 1rem;
+        }
+
+        /*Mobile Styles first */
+        .wrapper {
+            color: red;
+        }
+        /* Table style 600px and bigger */
+        @media only screen and (min-width:600px){
+            .wrapper {
+                color: green;
+            }
+        }
+
+        /*Desktop style 800px or greater */
+        @media only screen and (min-width:800px){
+            .wrapper {
+                color: orange;
+                display: flex;
+                justify-content: space-around;
+            }
+            .col {
+                display: inline-block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!--Start of Header-->
+    <div class="wrapper">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+    </div>
+    
+</body>
+</html>
