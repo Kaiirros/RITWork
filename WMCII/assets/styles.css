@@ -166,6 +166,49 @@ p {
   background-color: white;
 }
 
-ul {
-  list-style: square inside;
+
+#projectbox {
+  display: grid;
+  padding: 10%;
+  gap: 10%;
+  font-size: 2em;
+  background-color: #FF6565;
+  align-content: space-evenly;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-columns: minmax(50%, auto);
+  align-content: center;
+
+  justify-items: start;
+
 }
+
+#project1 {
+  grid-row: 1/1;
+  display: inherit;
+  padding: 2%;
+  text-align: center;
+  width: 20%;
+  background-color: #fb4b4b;
+}
+
+
+#project2 {
+  display: inherit;
+  grid-row: 2/2;
+  text-align: center;
+  width: 20%;
+  padding: 2%;
+  background-color: #fb4b4b;
+}
+
+#project3 {
+  display: inherit;
+  grid-row: 3/3;
+  text-align: center;
+  width: 20%;
+  background-color: #fb4b4b;
+
+
+  padding: 2%;
+}
+
