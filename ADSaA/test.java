@@ -1,5 +1,10 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 public class test {
 
@@ -51,9 +56,9 @@ public class test {
       while (list_Iter.hasNext()){
          System.out.println("Node value = " + list_Iter.next());
       }
-
-
    }
+
+
 
    public static void main(String[] args) {
 /*     int[] numbers = new int[10];
