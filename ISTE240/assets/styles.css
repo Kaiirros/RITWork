@@ -16,7 +16,7 @@ html {
 
 }
 
-.experience {
+.exercises {
   grid-column: 1/1;
     width: 250px;
     height: 250px;
@@ -154,7 +154,7 @@ p {
 
 }
 
-#navbutton{
+.navbutton{
   padding: 5%;
   transition-duration: .5s;
   background-color: #e0c171;
@@ -162,7 +162,7 @@ p {
   text-align: center;
 }
 
-#navbutton:hover {
+.navbutton:hover {
   background-color: white;
 }
 
