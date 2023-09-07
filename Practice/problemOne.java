@@ -32,9 +32,9 @@ public List<String> letterCombinations(String digits) {
 
             tempString += keyboardMap.get(digitArray[x]).split("")[i];
 
-            for (int y = 0; y < keyboardMap.get(digitArray[i]).length(); y++){
+            for (int y = digitArray.length; 0 < y; y--){
 
-                tempString += keyboardMap.get(digitArray[y]).split("")[y];
+                tempString += keyboardMap.get(digitArray[y]).split("")[i];
                 System.out.println(tempString);
 
             }
