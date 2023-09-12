@@ -13,16 +13,16 @@ public class BalancerStarter {
          }
          if (expressionSplit[i].equals("}") || expressionSplit[i].equals("]") || expressionSplit[i].equals(")")){
             if (returnStack.isEmpty()){
-               return "Not Balanced";
+               return expression + "is not Balanced";
             }
             returnStack.pop();
          }
          
       }
       if (!returnStack.isEmpty()){
-         return "Not Balanced";
+         return expression + " is not Balanced";
       }
-      return "Balanced";
+      return expression + " is balanced";
 
    }
    
