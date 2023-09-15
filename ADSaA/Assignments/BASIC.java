@@ -1,7 +1,7 @@
 package Assignments;
 
 import java.util.LinkedList;
-import java.util.ListIterator;
+//import java.util.ListIterator;
 
 public class BASIC {
     public LinkedList<Integer> program;
@@ -40,9 +40,26 @@ public class BASIC {
     }
 
     public void renumber(){
-        for (int i = 0; i < program.size(); i++){
-
+        int num = 10;
+        int size = program.size();
+        program.clear();
+        for (int i = 0; i < size; i++){
+            program.add(i, num);
+            num += 10;
         }
+    }
+
+    public void modify(int lineNumber, int newLineNumber){
+        if (program.contains(newLineNumber)){
+            System.err.println("ERROR: Line already occupied");
+            return;
+        }
+        if (!program.contains(lineNumber)){
+            System.err.println("ERROR: Line does not exist");
+            return;
+        }
+        program.remove(program.indexOf(lineNumber));
+        this.insert(newLineNumber);
 
     }
 
@@ -60,10 +77,22 @@ public class BASIC {
         program.add(100);
 
         BASIC basic = new BASIC(program);
+        basic.listAll();
+        basic.listRange(40, 80);
         basic.insert(17);
         basic.insert(34);
         basic.insert(88);
         basic.listAll();
+        basic.renumber();
+        basic.listAll();
+        basic.insert(80);
+        basic.modify(9, 14);
+        basic.modify(10, 110);
+        basic.modify(10, 111);
+        basic.listAll();
+        basic.renumber();
+        basic.listAll();
+
 
     }
 }
