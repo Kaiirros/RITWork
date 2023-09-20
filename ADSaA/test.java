@@ -1,10 +1,5 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
 
 public class test {
 
@@ -40,7 +35,7 @@ public class test {
       list.add("Element 30");
       list.add("Element 40");
 
-      ListIterator list_Iter = list.listIterator();
+      ListIterator<String> list_Iter = list.listIterator();
 
       System.out.println("ListIteratorTest list elements");
       while (list_Iter.hasNext()){

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Activity</title>
+    <style>
+        form {
+            background-color: lightblue;
+            max-width: fit-content;
+            padding: 1rem;
+        }
+        form .formelement {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <form actions="" method="get">
+        <fieldset>
+            <legend>General Information</legend>
+        <div class = "formelement" method="post">
+            <label>Lastname :</label>
+            <input name="lastname" id="lastname" type="text" placeholder="e.g. Smith" required>
+        </div>
+
+        <div class = "formelement">
+            <label>Your Favorite Number:</label>
+            <input name="favnum" type="number" min="1" max="10">
+
+        </div>
+        </fieldset>
+
+        <div class = "formelement">
+            <label>How would you rate the page?</label>
+            <input name="rating" type="range" min="1" max="10"  value = "5">
+
+        </div>
+
+        <div class = "formelement">
+            <label>Favorite Color:</label>
+            <br/>
+            <input name="favcolor" type="radio" value="red">Red <br/>
+            <input name="favcolor" type="radio" value="blue">Blue <br/>
+            <input name="favcolor" type="radio" value="green">Green <br/>
+
+        </div>
+
+        <input type="Submit"> <br/>
+        <input type="date" required>
+
+    </form>
+    
+</body>
+</html>

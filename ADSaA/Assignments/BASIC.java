@@ -1,20 +1,22 @@
 package Assignments;
 
 import java.util.LinkedList;
-//import java.util.ListIterator;
+import java.util.ListIterator;
 
 public class BASIC {
     public LinkedList<Integer> program;
+    ListIterator<Integer> programIterator;
 
     public BASIC(LinkedList<Integer> program){
         this.program = program;
 
     }
-    //ListIterator<Integer> programIterator = program.Listiterator();
+    
 
     public void listAll(){
-        for (int i = 0; i < program.size(); i++){
-            System.out.println(program.get(i));
+        programIterator = program.listIterator();
+        while (programIterator.hasNext()){
+            System.out.println(programIterator.next());
         }
     }
 
@@ -77,21 +79,28 @@ public class BASIC {
         program.add(100);
 
         BASIC basic = new BASIC(program);
+        System.out.println("1>---");
         basic.listAll();
+        /* System.out.println("2>---");
         basic.listRange(40, 80);
+        System.out.println("Checkpoint ^");
         basic.insert(17);
         basic.insert(34);
         basic.insert(88);
+        System.out.println("6>---");
         basic.listAll();
         basic.renumber();
+        System.out.println("8>---");
         basic.listAll();
         basic.insert(80);
         basic.modify(9, 14);
         basic.modify(10, 110);
         basic.modify(10, 111);
+        System.out.println("13>---");
         basic.listAll();
         basic.renumber();
-        basic.listAll();
+        System.out.println("15>---");
+        basic.listAll(); */
 
 
     }
