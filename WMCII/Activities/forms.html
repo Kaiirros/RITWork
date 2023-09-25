@@ -5,17 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms Activity</title>
     <style>
+        html {
+            background-color: lightgrey;
+        }
         form {
-            background-color: lightblue;
+            background-color: goldenrod;
             max-width: fit-content;
             padding: 1rem;
         }
         form .formelement {
             margin-bottom: 1rem;
         }
+
+        img {
+            width: 5rem;
+        }
+
+        .header {
+            align-items: center;
+    
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .menu {
+            width: 20rem;
+            height: 1.5rem;
+            display: inherit;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            border: .1rem solid black;
+        }
+
+        .hor{
+            font-style: italic;
+            font-weight: bold;
+            font-size: 2rem;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
+    
+    <div class="header">
+        <img src="weblogo.webp" alt="Logo">
+        <div class="menu">
+            <span class="navbar">Home</span>
+            <span class="navbar">Test</span>
+            <span class="navbar">Feedback</span>
+        </div>
+
+    </div>
+
+    <div class="hor">Please tell us about your visit!</div>
+    <hr></hr>
+
 
     <form actions="" method="get">
         <fieldset>

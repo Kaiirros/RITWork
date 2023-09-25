@@ -81,7 +81,7 @@ public class BASIC {
         BASIC basic = new BASIC(program);
         System.out.println("1>---");
         basic.listAll();
-        /* System.out.println("2>---");
+        System.out.println("2>---");
         basic.listRange(40, 80);
         System.out.println("Checkpoint ^");
         basic.insert(17);
@@ -100,7 +100,7 @@ public class BASIC {
         basic.listAll();
         basic.renumber();
         System.out.println("15>---");
-        basic.listAll(); */
+        basic.listAll();
 
 
     }
