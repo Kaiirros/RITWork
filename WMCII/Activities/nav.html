@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+
+            margin: 0px;
+            padding: 0px;
+            background-color: lightblue;
+        }
+
+        .dropdown li{
+            padding: 10px;
+
+            position:relative;
+        }
+
+        .dropdown .submenu {
+            flex-direction: column;
+            position: absolute;
+            top:38px;
+            background-color: orange;
+            opacity: 0;
+            visibility: hidden;
+
+            transition: 1s;
+        }
+
+        .dropdown li:hover{
+            background-color: goldenrod;
+        }
+
+        .dropdown li:hover .submenu{
+            background-color: lightskyblue;
+            visibility: visible;
+            opacity: 100;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>The Nav</h1>
+    <nav class="dropdown">
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Programs</a>
+
+                <ul class="submenu">
+                    <li><a href="#">After School Programs</a></li>
+                    <li><a href="#">Before School</a></li>
+
+                </ul>
+                
+            </li>
+            <li>
+                <a href="#">Contact</a>
+                <ul class="submenu">
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Social Media</a></li>
+
+                </ul>
+            </li>
+
+
+            
+        </ul>
+    </nav>
+</body>
+</html>
