@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/travelform.css">
+    <title>Forms Activity</title>
+    <!--This page was created and finalized by Daniel McKee on 09/25/2023 for ISTE 240 Exercise 04-->
+    <!--This is the survey form page intended for users to document their own experience-->
+</head>
+<body>
+    
+    <div class="header">
+        <img src="assets/weblogo.webp" alt="Logo">
+        <div class="menu">
+            <span class="navbar"><a href="#">Home</a></span>
+            <span class="navbar"><a href="#">Locations</a></span>
+            <span class="navbar"><a href="#">History</a></span>
+            <span class="navbar"><a href="#">Map</a></span>
+            <span class="navbar"><a href="#">Contact</a></span>
+            <span class="navbar"><a href="#">Feedback</a></span>
+        </div>
+
+    </div>
+
+    <div class="hor">Please tell us about your visit!</div>
+
+    <hr>
+
+    <form action="#" method="get">
+        <img class="flag"  alt="Flag of Germany" src="assets/german_flag.png">
+        <div class="formelement">
+            <label>Have you visited Germany before?</label>
+            <br>
+            <label>
+                <input type="radio" name="choice-radio" required>
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="choice-radio" required>
+                No
+              </label>
+        </div>
+        
+        <div class = "formelement">
+            <label>If "Yes", when did you visit?</label>
+            <br>
+            <input name="date" type="date">
+
+        </div>
+
+        <div class = "formelement">
+            <label>How many times have you been outside of your country, if at all?</label>
+            <br>
+            <input name="number" type="number">
+        </div>
+
+
+        <fieldset>
+            <legend>Favorite State?</legend>
+
+        <div class = "formelement">
+            <input name="state" type="radio" value="Bavaria">Bavaria <br>
+            <input name="state" type="radio" value="Berlin">Berlin <br>
+            <input name="state" type="radio" value="Brandenburg">Brandenburg <br>
+            <input name="state" type="radio" value="Hamburg">Hamburg <br>
+            <input name="state" type="radio" value="Saxony">Saxony
+        </div>
+
+    </fieldset>
+
+        <div class = "formelement">
+            <label>How would you rate content of this website?</label>
+            <br>
+            <label>0</label>
+            <input name="rating" type="range" min="1" max="10"  value = "5">
+            <label>10</label>
+
+        </div>
+
+
+
+        <input type="Submit"> <br>
+
+
+    </form>
+    
+</body>
+</html>
