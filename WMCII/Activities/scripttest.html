@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="script.js"></script>
+    <style>
+        div {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div>Hello</div>
+
+    <script>
+        function validate(){
+
+            
+            if (document.getElementById("lastname").value == ""){
+                alert("Fill in last name");
+                return false;
+            }
+        }
+
+    </script>
+
+    <form name="contact" method="get" action="process.php" onsubmit="return validate()">
+        Last Name: <input type="text" name="lastname" id="lastname">
+        
+        <br>
+        <br>
+
+        <input type="submit" value="Continue">
+    </form>
+
+
+    <script>
+        console.log("Hello from embedded")
+        //alert("hello from embedded")
+    </script>
+    
+</body>
+</html>
