@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function validate(){
+            console.log("Validating...")
+            
+            if(document.getElementById("lastname").value == ""){
+                document.getElementById("lastname").style.borderBottomColor = '#ff0000';
+;
+                return false;                
+
+            } else {
+                return true;
+            }
+        }
+
+        function addNums(){
+            
+            num1 = document.getElementById("num1").value 
+            num2 = document.getElementById("num2").value
+            //console.log("The sum is " + (parseInt(num1) + parseInt(num2)))
+            answer = (parseInt(num1) + parseInt(num2))
+
+            document.getElementById("answer").innerHTML = answer
+            }
+
+
+    </script>
+
+    <form name="contact" method="get" action="process.php" onsubmit="return validate()">   
+        Last Name: <input type="text" name="lastname" id="lastname">
+        <br>
+        How did you hear about us? 
+        <br>
+        <input type="radio" name="referral" id="referral-tv" value="tv">TV <br>
+        <input type="radio" name="referral" id="referral-radio" value="radio">Radio <br>
+        <input type="radio" name="referral" id="referral-other" value="other">Other <br>
+        <input type="submit" value="Register">
+    </form>
+    <hr>
+
+        Num 1: <input type="text" name="num1" id="num1"><br>
+        Num 2: <input type="text" name="num2" id="num2"><br>
+        <button onclick="addNums()">Add Numbers</button>
+        Answer: <span id="answer">0</span>
+
+</body>
+</html>
