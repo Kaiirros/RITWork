@@ -78,8 +78,8 @@ public class BinarySearchTree {
       }
    }
 
-   public void getLayer(){
-      System.out.println(layer);
+   public String getLayer(){
+      return String.valueOf(layer);
    }
    
    public Node search(Node node, int key) {
@@ -105,13 +105,13 @@ public class BinarySearchTree {
       BinarySearchTree bst = new BinarySearchTree(key_values);
       
       System.out.println("Inorder tree traversal");
-      bst.inorderTraversal(bst.root, true);
+      bst.inorderTraversal(bst.root, false);
       
-      int search_key = 11;
+      int search_key = 110;
       Node node = bst.search(bst.root, search_key);
       
       if(node != null){
-         System.out.println("Found " + node.data);
+         System.out.println("Found " + node.data + " at layer: " + bst.getLayer());
          
       }else{
          System.out.println(search_key + " not found");
