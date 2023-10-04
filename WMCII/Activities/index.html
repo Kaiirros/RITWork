@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box">Hello World</div>
+
+    <div id="seconddiv" style="color: red;">More Stuff</div>
+
+    <div class="box">
+        Things not to put into the coolant system
+        <ul>
+            <li>Windshield Wiper Fluid</li>
+            <li>Beer</li>
+            <li>Oil</li>
+        </ul>
+    </div>
+    
+
+</body>
+<script>
+    document.getElementById("seconddiv").style.fontSize = "30px";
+    console.log(document.getElementsByClassName("box").length);
+    boxelements = document.getElementsByClassName("box")
+
+    for (var i = 0; i<boxelements.length; i++){
+        boxelements[i].style.color = "orange";
+    }
+</script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Demo</title>
+</head>
+<style>
+button {
+	margin-left:10px;
+}
+</style>
+
+ <script>
+	function number01(){
+       //change the text of the <title> tag to say "PowerPoint Demo"
+		document.title = "PowerPoint Demo";
+       
+	}
+	function number02(){
+	   //change the second <p> tag so the font is red
+		document.getElementsByTagName("p")[1].style.color = "red";
+
+	   
+	}
+	function number03(){
+		//If "3. Yahoo" is displayed, make it disappear
+		list = document.getElementById("myList").getElementsByTagName("li");
+		for (var i = 0; list.length; i++){
+			if (list[i].textContent == "Yahoo"){
+				list[i].style.display = "none";
+			}
+	
+		}
+
+
+		
+		//else, make it appear!
+
+	}
+	function number04(){
+		//make all with the className of 'new' have a yellow background
+
+	}
+	function number05(){
+		//each time it is clicked, make the image (id of 'best') move right by 10 pixels
+
+	}
+	function number06(){
+		//append, at the end of the document, the text " ISTE 240 "
+
+	}
+   function number07(){
+      //create an <li> node
+      
+      //create an <a> node
+      
+      //create a text node holding "Purdue University"
+      
+      //put the text node inside of the <a> tag
+      
+      //give the <a> tag the href attribute and set it to "https://www.purdue.edu/"
+      
+      //put the <a> tag inside of the <li>
+      
+      //put the <li> in the <ol> so it shows up first!
+
+	}
+</script>
+<body>
+	<h1>DOM demo</h1>
+	<img src="ritLogo.png" id="best" style="position:absolute;left:500px;top:10px">
+	<p class="new">This is a demonstration.</p>
+	<ul>
+		<li>Document is the html page</li>
+		<li>Object refers to things on the page</li>
+		<li>Model refers to standardization</li>
+	</ul>
+	<p>This is short but it is the second paragraph</p>
+	<p class="new">This is the third paragraph</p>
+	<ol id="myList">
+	  <li><a href="http://www.rit.edu">RIT</a></li>
+	  <li><a href="http://www.google.com">Google</a></li>
+	  <li><a href="http://www.yahoo.com">Yahoo</a></li>
+	  <li><a href="http://www.brockport.edu">Brockport</a></li>
+	</ol>
+	<p>
+	<button type="button" onclick="number01();">01</button> 
+	<button type="button" onclick="number02();">02</button> 
+	<button type="button" onclick="number03();">03</button> 
+	<button type="button" onclick="number04();">04</button> 
+	<button type="button" onclick="number05();">05</button> 
+	<button type="button" onclick="number06();">06</button>
+	<button type="button" onclick="number07();">07</button>
+    </p>
+
+</body>
+</html>

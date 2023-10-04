@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html><head></head><body style="color: rgb(32, 33, 34); font-family: undefined;"><h1 style="margin: 12pt 0in 0in; break-after: avoid; font-size: 16pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">The DOM</h1>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">Let’s take what we did last week and go further!</p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">What is the DOM</h2>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">Simple!</p>
+<ul style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: black; background: white;">DOM = Document Object Model</span></li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: black; background: white;">Document = the web page</span></li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: black; background: white;">Object = things on the page</span></li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: black; background: white;">Model = standard way of naming and accessing the things</span></li>
+</ul>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">How is it created?</h2>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">The Document Object Model (DOM) is an object model for HTML, XML, SVG (and other) documents.</p>
+<ul style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">When a web page loads, the browser creates an object model of that page.</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">That model provides objects with properties and methods of all HTML elements.
+<ul style="list-style-type: circle; margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Inclusive of things like childNodes and parentNodes, so we can access them via a tree structure.</li>
+</ul>
+</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Web scripts can access those objects to change, add, or delete HTML elements and their attributes.</li>
+</ul>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">What does it look like?</h2>
+<table cellpadding="0" cellspacing="0" border="0" class="MsoTableGrid" style="border-collapse: collapse; border: none;">
+<tbody>
+<tr>
+<td valign="top" style="width: 233.75pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="break-after: avoid; margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><img alt="pic of node tree" height="123" width="203" src="File_024c76daac10453ba79eaa28e0158191_image_72320291021676865550909.jpg"></p>
+<p style="margin: 0in 0in 10pt; font-size: 9pt; font-family: Calibri, sans-serif; color: rgb(68, 84, 106); font-style: italic;">Figure 1</p>
+</td>
+<td valign="top" style="width: 233.75pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><img height="140" width="251" src="File_c50fc46e46264a9c92fc5a8a696d1df3_image_66845624831676865550910.png"></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">If you look at Figure 1 (left is the tree structure of the code on the right), you can see how the DOM is created, and we can in fact access and alter any part of it.&nbsp; The piece of text ‘simple’ has a parentNode (the &lt;i&gt; tag), which also has a parentNode (the &lt;p&gt;) tag which happens to have a previous sibling (the &lt;h1&gt;) tag!&nbsp; We will learn to access any node from any point!</p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">DOM Node Tree</h2>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">DOM is organized as a tree of nodes. In DOM, everything is a node!</p>
+<ul style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">The entire document is a document node</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Every HTML element is an element node</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">The text inside HTML elements are text nodes</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Every HTML attribute is an attribute node</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Comments are comment nodes</li>
+</ul>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">Some of the DOM methods</h2>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><img height="316" width="468" src="File_554b09d8794c4dac85d6e7d021d9672f_image_31876126141676865550914.png"></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">Some examples</h2>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">If I wanted to find (in any page):</p>
+<ul style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Get the second paragraph and set the CSS to display:none
+<ul style="list-style-type: circle; margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">document.getElementsByTagName(“p”)[1].style.display=”none”;</li>
+</ul>
+</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Get the third link on the page and set the link to “http://www.rit.edu”
+<ul style="list-style-type: circle; margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">document.getElementsByTagName(“a”)[2].href=”http://www.rit.edu”;</li>
+</ul>
+</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Find an image with the id=‘best’ and give it a classname of “changed”
+<ul style="list-style-type: circle; margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">document.getElementById(‘best’).class=”changed”;</li>
+</ul>
+</li>
+</ul>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">In short, the simple way to think about things:</p>
+<ul style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">English:
+<ul style="list-style-type: circle; margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: #ed7d31;">(find the element I want)</span>.<span style="color: #70ad47;">attribute </span>= <span style="color: red;">new value</span></li>
+</ul>
+</li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;">Code
+<ul style="list-style-type: circle; margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: #ed7d31;">document.getElementById(‘best’)</span>.<span style="color: #70ad47;">class</span>=<span style="color: red;">”changed”;</span></li>
+</ul>
+</li>
+</ul>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">Can even take this to events:</p>
+<ul style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: Calibri, sans-serif;"><span style="color: #ed7d31;">document.getElementById(‘id’)</span>.<span style="color: #70ad47;">onclick</span>=<span style="color: red;">function(){ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //some code I want to execute on click <br>};</span></li>
+</ul>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
+<h2 style="margin: 2pt 0in 0in; break-after: avoid; font-size: 13pt; font-family: 'Calibri Light', sans-serif; color: rgb(47, 84, 150); font-weight: normal;">Simple exercise</h2>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;">Let’s start playing with this week’s first demo.&nbsp; Download and unzip theDocument_start.zip file and open the html file in both a browser and text editor.</p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: rgb(204, 0, 0);">WE WILL NOW DO THE REST IN CLASS!</span></p></body></html>
