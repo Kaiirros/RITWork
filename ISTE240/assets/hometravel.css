@@ -36,7 +36,9 @@ body, html{
     align-items: center;
 }
 
-button {
+.navbutton  {
+    display: inline-block;
+    position: relative;
     text-align: center;
     text-decoration: none;
     border: none;
@@ -105,12 +107,55 @@ button:active{
 
 }
 
+.dropcontent {
+    position: relative;
+    display: none;
+    top:.4rem;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 18rem;
+}
+.dropcontent a {
+    display: block;
+
+    align-items: center;
+    background-color: white;
+    border-top: .1rem gray solid;
+    color:black;
+    padding: .5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.dropdown:hover{
+    background-color: gray;
+}
+.dropcontent a:hover{
+    background-color: lightgray;
+}
+
+.dropdown:hover .dropcontent {
+    display: block;
+
+}
+
+
 .footer{
     background-color: lightgray;
+    border-top: .2rem solid grey;
     padding: 1rem;
     text-align: center;
     
+    
 }
+
+.navbutton{
+    text-align: center;
+}
+
+
+
+
 
 
 /*Tablet screens <900px*/
