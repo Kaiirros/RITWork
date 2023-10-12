@@ -17,10 +17,21 @@ class TermEntry{
     }
 }
 
+class Node {
+   Node left;
+   Node right;
+   int data;
+
+   
+   public Node(int value) {
+      data = value;
+   }
+}
+
 public class IRSystem {
     HashMap<String, Integer> countMap = new HashMap<>();
     
-    public String[] parse(String filename) throws IOException{
+    private String[] parse(String filename) throws IOException{
         FileReader reader = new FileReader(filename);
         BufferedReader bufferedReader = new BufferedReader(reader);
         String readerString ="";
@@ -34,7 +45,7 @@ public class IRSystem {
         return returnTokens;
     }
 
-    public void countTerms(String[] terms){
+    private void countTerms(String[] terms){
 
         for (String element : terms){
             if (countMap.containsKey(element)){

@@ -1,4 +1,4 @@
-package Exercises;
+
 import java.util.Stack;
 
 public class BalancerStarter {

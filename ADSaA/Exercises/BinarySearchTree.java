@@ -1,4 +1,4 @@
-package Exercises;
+
 import java.util.Arrays;
 
 class Node {
