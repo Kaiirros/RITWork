@@ -14,8 +14,6 @@ body, html{
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
-
 }
 
 
@@ -30,11 +28,23 @@ body, html{
 
 .navbar {
     display: flex;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
     justify-content: space-around;
     background-color: lightgray;
     height: 4rem;
     align-items: center;
+    border-bottom: .2rem solid gray;
+    border-top: .2rem solid gray;
+
 }
+
+a{
+    text-decoration: none;
+}
+
+
 
 .navbutton  {
     display: inline-block;
@@ -56,7 +66,7 @@ button:hover{
     background-color: grey;
 }
 button:active{
-    background-color: red;
+    background-color: goldenrod;
 }
 
 
@@ -151,10 +161,81 @@ button:active{
 
 .navbutton{
     text-align: center;
+
+}
+
+.content-header{
+    font-size: 3rem;
+}
+.content-header-2{
+    font-size: 2rem;
+}
+.content-paragraph{
+    font-size: 1.5rem;
+}
+.content-img{
+    width: 35rem;
+    border-radius: 5%;
+    border: .25rem solid darkgray;
+}
+
+.photo-row{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-evenly;
+}
+.img-set {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    max-width: min-content;
+}
+.caption {
+    text-align:center;
+}
+
+/*BAVARIA PAGE */
+.hero.bavaria{
+    background-image: url(./munich.jpg);
+
+}
+.page-info{
+
+    box-shadow: 4px 4px 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    width: 75%;
+    
+    background-color: lightgray;
+}
+
+.bavaria-region-flag {
+    float: right;
+    padding: 1rem;
+    width: 15rem;
+
 }
 
 
+@media only screen and (max-width: 1600px){
+    .content-img{
+        width: 25rem;
+        border-radius: 5%;
+        border: .25rem solid darkgray;
+    }
 
+}
+
+@media only screen and (max-width: 1000px){
+    .content-img{
+        width: 20rem;
+        border-radius: 5%;
+        border: .25rem solid darkgray;
+    }
+
+}
 
 
 
@@ -162,6 +243,7 @@ button:active{
 @media only screen and (max-width: 900px){
     .navbar {
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: space-around;
         background-color: lightgray;
@@ -194,6 +276,15 @@ button:active{
     .map{
         width: 60%;
 
+    }
+    .photo-row{
+        flex-direction: column;
+    }
+
+    .content-img{
+        width: 20rem;
+        border-radius: 5%;
+        border: .25rem solid darkgray;
     }
 }
 
