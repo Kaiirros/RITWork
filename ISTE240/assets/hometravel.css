@@ -81,41 +81,6 @@ button:active{
     width: 1.5rem;
 }
 
-.photos{
-    background-image: url(./hamburg.jpg);
-    aspect-ratio: 1/1;
-    width: 30%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border-right: .5rem lightgray solid;
-    border-bottom: .5rem lightgray solid;
-    border-radius: 50%;
-}
-.map{
-    background-image: url(./de-07.jpg);
-    aspect-ratio: 1/1;
-    width: 30%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border-right: .5rem lightgray solid;
-    border-bottom: .5rem lightgray solid;
-    border-radius: 50%;
-}
-.content-text{
-    position: absolute;
-    color: black;
-    background-color: white;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border-radius: 20%;
-    padding: .5rem;
-    width: fit-content;
-    font-size: 2rem;
-
-}
 
 .dropcontent {
     position: relative;
@@ -195,11 +160,6 @@ button:active{
     text-align:center;
 }
 
-/*BAVARIA PAGE */
-.hero.bavaria{
-    background-image: url(./munich.jpg);
-
-}
 .page-info{
 
     box-shadow: 4px 4px 2rem;
@@ -216,6 +176,22 @@ button:active{
     padding: 1rem;
     width: 15rem;
 
+}
+
+/*BAVARIA PAGE */
+.hero.bavaria{
+    background-image: url(./munich.jpg);
+
+}
+
+/*BERLIN PAGE*/
+.hero.berlin{
+    background-image: url(./brandenburg.JPG); 
+}
+
+/*HAMBURG PAGE*/
+.hero.hamburg{
+    background-image: url(./hamburg.jpg);
 }
 
 
