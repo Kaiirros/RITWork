@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/travelform.css">
+    <link rel="stylesheet" href="./assets/hometravel.css">
     <title>Forms Activity</title>
     <!--This page was created and finalized by Daniel McKee on 09/25/2023 for ISTE 240 Exercise 04-->
     <!--This is the survey form page intended for users to document their own experience-->
 </head>
 <body>
-    
-    <div class="header">
-        <img src="assets/weblogo.webp" alt="Logo">
-        <div class="menu">
-            <span class="navbar"><a href="#">Home</a></span>
-            <span class="navbar"><a href="#">Locations</a></span>
-            <span class="navbar"><a href="#">History</a></span>
-            <span class="navbar"><a href="#">Map</a></span>
-            <span class="navbar"><a href="#">Contact</a></span>
-            <span class="navbar"><a href="#">Feedback</a></span>
+    <hr>
+    <div class="navbar">
+        <div class="navbutton dropdown"><a href="./homepage.html">Home</a></div>
+        
+        <div class="navbutton dropdown">Locations<img class="dropdown-arrow" src="./assets/down-arrow.svg">
+                <div class="dropcontent">
+                <a href="./berlin.html">Berlin</a>
+                <a href="./bavaria.html">Bavaria</a>
+                <a href="./frankfurt.html">Frankfurt</a>
+            </div>
         </div>
-
+        <div class="navbutton dropdown">Attractions <img class="dropdown-arrow" src="./assets/down-arrow.svg">
+            <div class="dropcontent">
+                <a href="#">Bavaria</a>
+                <a href="#">Brandenburg</a>
+                <a href="#">Brandenburg</a>
+            </div>
+        </div>
+        <div class="navbutton dropdown"><a href="#">Gallery</a></div>
+        </div>
     </div>
-
+    <hr>
     <div class="hor">Please tell us about your visit!</div>
 
     <hr>
@@ -57,14 +65,13 @@
 
 
         <fieldset>
-            <legend>Favorite State?</legend>
+            <legend>Favorite City?</legend>
 
         <div class = "formelement">
-            <input name="state" type="radio" value="Bavaria">Bavaria <br>
+            <input name="state" type="radio" value="Munich">Munich <br>
             <input name="state" type="radio" value="Berlin">Berlin <br>
-            <input name="state" type="radio" value="Brandenburg">Brandenburg <br>
+            <input name="state" type="radio" value="Frankfurt">Frankfurt <br>
             <input name="state" type="radio" value="Hamburg">Hamburg <br>
-            <input name="state" type="radio" value="Saxony">Saxony
         </div>
 
     </fieldset>

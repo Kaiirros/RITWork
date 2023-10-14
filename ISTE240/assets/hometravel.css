@@ -62,11 +62,8 @@ a{
 
 }
 
-button:hover{
-    background-color: grey;
-}
-button:active{
-    background-color: goldenrod;
+.navbutton:hover{
+    cursor: pointer;
 }
 
 
@@ -143,6 +140,11 @@ button:active{
     border-radius: 5%;
     border: .25rem solid darkgray;
 }
+.attraction-content-img{
+    width: 55rem;
+    border-radius: 5%;
+    border: .25rem solid darkgray;
+}
 
 .photo-row{
     display: flex;
@@ -151,6 +153,8 @@ button:active{
 }
 .img-set {
     display: flex;
+    justify-content: center;
+    align-content: center;
     margin-left: auto;
     margin-right: auto;
     flex-direction: column;
@@ -171,7 +175,7 @@ button:active{
     background-color: lightgray;
 }
 
-.bavaria-region-flag {
+.region-flag {
     float: right;
     padding: 1rem;
     width: 15rem;
@@ -193,22 +197,83 @@ button:active{
 .hero.hamburg{
     background-image: url(./hamburg.jpg);
 }
+/*FRANKFURT PAGE */
+.hero.frankfurt{
+    background-image: url(./frankfurtSquare.jpg);
+}
+/*TV TOWER ATTRACTION*/
+.hero.tvtower{
+    background-image: url(./tvTower.jpg);
+}
+
+/*RATING FORM*/
+
+form {
+    /*Style*/
+    background-color: lightgray;
+    padding: 1rem;
+
+    /*Positions*/
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+form .formelement {
+    /*Positions*/
+    margin-bottom: 1rem;
+    width: 50rem;
+}
+
+.flag {
+    /*Positions*/
+    width: 6rem;
+}
+
+.hor{
+    /*Style*/
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+
+     /*Positions*/
+    text-align: center;
+}
+.flag {
+    float: right;
+}
 
 
 @media only screen and (max-width: 1600px){
     .content-img{
         width: 25rem;
-        border-radius: 5%;
-        border: .25rem solid darkgray;
+
     }
+    .content-img-map{
+        width: 25rem;
+        border-radius: 5%;
+
+    }
+    .attraction-content-img{
+        width: 40rem;
+
+    }
+    
 
 }
 
 @media only screen and (max-width: 1000px){
     .content-img{
         width: 20rem;
-        border-radius: 5%;
-        border: .25rem solid darkgray;
+
+    }
+    .content-img-map{
+        width: 20rem;
+
+    }
+    .attraction-content-img{
+        width: 30rem;
+
     }
 
 }
@@ -257,11 +322,12 @@ button:active{
         flex-direction: column;
     }
 
-    .content-img{
+    .attraction-content-img{
         width: 20rem;
-        border-radius: 5%;
-        border: .25rem solid darkgray;
+
     }
+
+
 }
 
 /*Phone side less than 900px */
