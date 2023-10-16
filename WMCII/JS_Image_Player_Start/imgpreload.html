@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Images Player</title>
+<link rel="stylesheet" href="assets/css/preloadimages.css" >
+
+<script type="text/javascript">
+
+    var newImage = new Array();
+    var captionArray = ['Path','River','Peach','Forest', 'Forest 2','Swan','Waterfall','Lizard']
+
+
+
+    function init(){
+
+	  thumbImages = document.getElementById("imgHolder").getElementsByTagName("img")
+
+      for (var i = 1; i <= thumbImages.length; i++){
+        //console.log(col[i].src)
+
+        newImage[i] = new Image()
+        newImage[i].src = "assets/images/npkrka" + i + "big.jpg";
+      }
+
+    }
+    
+    function changeMe(imageNode){
+
+        var start =imageNode.src.indexOf('/npkrka') + 7
+        var end = imageNode.src.indexOf('.png')
+
+        var num = imageNode.src.substring(start,end);
+
+        document.getElementById("bigPic").src = newImage[num].src 
+
+        document.getElementById("cap").innerHTML = captionArray[num-1]
+
+      }
+
+
+</script>
+</head>
+<body onload="init()">
+    <!--Big Pics-->
+    <h1>Pictures of Krka National Park in Croatia</h1>
+    <figure id="bigPlace">
+        <img src="assets/images/npkrka1big.jpg" name="bigpic" alt="big pics!" id="bigPic" />
+        <figcaption id="cap"></figcaption>
+    </figure>
+    <!--section holding all of the thumbnail pictures-->
+    <section class="table">
+        <div style="width:833px; height:104px; overflow:auto; white-space: nowrap;" id="imgHolder">
+            <img src="assets/images/npkrka1.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" /> 
+            <img src="assets/images/npkrka2.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" /> 
+            <img src="assets/images/npkrka3.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" /> 
+            <img src="assets/images/npkrka4.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" /> 
+            <img src="assets/images/npkrka5.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" /> 
+            <img src="assets/images/npkrka6.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" />
+            <img src="assets/images/npkrka7.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" /> 
+            <img src="assets/images/npkrka8.png" border="0" onclick="changeMe(this)" onmouseover="this.style.cursor='pointer';" />
+        </div>
+    </section>
+</body>
+</html>
+
