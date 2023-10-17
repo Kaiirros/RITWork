@@ -1,13 +1,12 @@
-package Assignments.A02;
+package A02;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-class TermEntry{
+class TermEntry implements Comparable<TermEntry>{
     String term;
     int count;
 
@@ -22,6 +21,16 @@ class TermEntry{
     public int getCount(){
         return count;
     }
+
+    public String toString(){
+      return term + ": " + count;
+    }
+
+   @Override
+   public int compareTo(TermEntry o) {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+   }
 }
 
 class Node {
@@ -41,7 +50,6 @@ class BinarySearchTree {
    
    public BinarySearchTree(LinkedList<TermEntry> keys) {
      // sort keys in ascending order
-      keys.sort(null);
       int start = 0;
       int end = keys.size() - 1;
       int mid = (start + end) / 2;
@@ -56,13 +64,13 @@ class BinarySearchTree {
    public void insert(Node node, LinkedList<TermEntry> keys, int start, int end) {
       if(start <= end) {
          int mid = (start + end) / 2;
-         if(keys.get(mid) < node.data) { // left subtree
-            node.left = new Node(keys[mid]);
+         if(keys.get(mid).getTerm().compareTo(node.data.getTerm()) > 0) { // left subtree
+            node.left = new Node(keys.get(mid));
             insert(node.left, keys, start, mid - 1);
             insert(node.left, keys, mid + 1, end);
          }
          else { // right subtree
-            node.right = new Node(keys[mid]);
+            node.right = new Node(keys.get(mid));
             insert(node.right, keys, start, mid - 1);
             insert(node.right, keys, mid + 1, end);
          }
@@ -105,14 +113,14 @@ class BinarySearchTree {
       return String.valueOf(layer);
    }
    
-   public Node search(Node node, int key) {
+   public Node search(Node node, TermEntry key) {
       if(node == null)
          // hitting an empty node means search has failed
          return null;
       if(node.data == key)
          // found a match, return the Node's data
          return node;
-      else if(node.data > key){
+      else if(node.data.getTerm().compareTo(key.getTerm()) > 0){
          // need to search the left subtree since key is less than node value
          layer++;
          return search(node.left, key);
@@ -153,7 +161,7 @@ public class IRSystem {
                 countMap.put(element, 1);
             }
         }
-        System.out.println(countMap.toString());
+        //System.out.println(countMap.toString());
 
     }
 
@@ -173,7 +181,8 @@ public class IRSystem {
             TermEntry termEntry = new TermEntry(element, irSystem.countMap.get(element));
             list.add(termEntry);
         }
-
         BinarySearchTree bst = new BinarySearchTree(list);
+        bst.inorderTraversal(bst.root, false);
+      
     }
 }
