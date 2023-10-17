@@ -1,9 +1,19 @@
+/*
+This page was created and styled by Daniel McKee for ISTE240's Travel Website
+    All locational photos used are my own.
+
+    10/14/2023
+*/
+
+
+
 body, html{
     height: 100%;
     margin: 0;
     
 }
 
+/*HERO*/
 .hero {
     background-image: url(./neuschwanstein.jpeg);
     height: 50%;
@@ -16,7 +26,6 @@ body, html{
     position: relative;
 }
 
-
 .hero-text{
     position:absolute;
     right: 2rem;
@@ -26,6 +35,39 @@ body, html{
     font-size: 5rem;
 }
 
+/*------------------------------------*/
+
+/*BAVARIA PAGE */
+.hero.bavaria{
+    background-image: url(./munich.jpg);
+
+}
+
+/*BERLIN PAGE*/
+.hero.berlin{
+    background-image: url(./brandenburg.JPG); 
+}
+
+/*HAMBURG PAGE*/
+.hero.hamburg{
+    background-image: url(./hamburg.jpg);
+}
+/*FRANKFURT PAGE */
+.hero.frankfurt{
+    background-image: url(./frankfurtSquare.jpg);
+}
+/*TV TOWER ATTRACTION*/
+.hero.tvtower{
+    background-image: url(./TVTowerView.jpg);
+}
+/*DACHAU ATTRACTION*/
+.hero.dachau{
+    background-image: url(./Dachau.jpg);
+}
+
+/*------------------------------------*/
+
+/*NAVIGATION*/
 .navbar {
     display: flex;
     position: sticky;
@@ -39,12 +81,6 @@ body, html{
     border-top: .2rem solid gray;
 
 }
-
-a{
-    text-decoration: none;
-}
-
-
 
 .navbutton  {
     display: inline-block;
@@ -64,12 +100,6 @@ a{
 
 .navbutton:hover{
     cursor: pointer;
-}
-
-
-.content{
-    display: flex;
-    justify-content: space-evenly;
 }
 
 .dropdown-arrow {
@@ -112,6 +142,13 @@ a{
 }
 
 
+/*SITE CONTENT/DESIGN*/
+.content{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
 .footer{
     background-color: lightgray;
     border-top: .2rem solid grey;
@@ -119,11 +156,6 @@ a{
     text-align: center;
     
     
-}
-
-.navbutton{
-    text-align: center;
-
 }
 
 .content-header{
@@ -182,29 +214,6 @@ a{
 
 }
 
-/*BAVARIA PAGE */
-.hero.bavaria{
-    background-image: url(./munich.jpg);
-
-}
-
-/*BERLIN PAGE*/
-.hero.berlin{
-    background-image: url(./brandenburg.JPG); 
-}
-
-/*HAMBURG PAGE*/
-.hero.hamburg{
-    background-image: url(./hamburg.jpg);
-}
-/*FRANKFURT PAGE */
-.hero.frankfurt{
-    background-image: url(./frankfurtSquare.jpg);
-}
-/*TV TOWER ATTRACTION*/
-.hero.tvtower{
-    background-image: url(./tvTower.jpg);
-}
 
 /*RATING FORM*/
 
@@ -243,7 +252,42 @@ form .formelement {
     float: right;
 }
 
+.weblogo {
+    position: absolute;
+    left:2rem;
+    top:2rem;
+    width: 10rem;
+}
+a{
+    color: black;
 
+}
+.footer-row{
+    font-size: 1.5rem;
+}
+
+/*Sources*/
+
+.source-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-content:center;
+    background-color: gray;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.source-row a{
+    color: blue;
+}
+
+.source-photo{
+    width: 10%;
+    background-color: darkgray;
+}
+
+
+/*Less than 1600px*/
 @media only screen and (max-width: 1600px){
     .content-img{
         width: 25rem;
@@ -262,6 +306,7 @@ form .formelement {
 
 }
 
+/*Less than 1000px*/
 @media only screen and (max-width: 1000px){
     .content-img{
         width: 20rem;
@@ -330,20 +375,25 @@ form .formelement {
 
 }
 
-/*Phone side less than 900px */
+/*Phone side less than 800px */
 @media only screen and (max-width: 800px){
     .hero-text {
-            position: absolute;
-            font-size: 3rem;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, 0);
+        position: absolute;
+        font-size: 3rem;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
 
-            height: fit-content;
-            width: max-content;
-        }
+        height: fit-content;
+        width: max-content;
+    }
     .hero{
         height: 25%;
+    }
+
+    .weblogo {
+        top:1rem;
+        width: 6rem;
     }
 
 }

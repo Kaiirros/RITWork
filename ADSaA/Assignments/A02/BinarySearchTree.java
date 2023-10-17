@@ -1,51 +1,28 @@
 package Assignments.A02;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-
-class TermEntry{
-    String term;
-    int count;
-
-    public TermEntry(String term, int count){
-        this.term = term;
-        this.count = count;
-    }
-
-    public String getTerm(){
-        return term;
-    }
-    public int getCount(){
-        return count;
-    }
-}
 
 class Node {
    Node left;
    Node right;
-   TermEntry data;
+   int data;
 
    
-   public Node(TermEntry value) {
+   public Node(int value) {
       data = value;
    }
 }
 
-class BinarySearchTree {
+public class BinarySearchTree {
    Node root; // root node of the entire tree
    int layer = 0;
    
-   public BinarySearchTree(LinkedList<TermEntry> keys) {
+   public BinarySearchTree(int[] keys) {
      // sort keys in ascending order
-      keys.sort(null);
+      Arrays.sort(keys);
       int start = 0;
-      int end = keys.size() - 1;
+      int end = keys.length - 1;
       int mid = (start + end) / 2;
-      root = new Node(keys.get(mid));
+      root = new Node(keys[mid]);
       
       // left side of array passed to left subtree
       insert(root, keys, start, mid - 1);
@@ -53,10 +30,10 @@ class BinarySearchTree {
       insert(root, keys, mid + 1, end);
    }
    
-   public void insert(Node node, LinkedList<TermEntry> keys, int start, int end) {
+   public void insert(Node node, int[] keys, int start, int end) {
       if(start <= end) {
          int mid = (start + end) / 2;
-         if(keys.get(mid) < node.data) { // left subtree
+         if(keys[mid] < node.data) { // left subtree
             node.left = new Node(keys[mid]);
             insert(node.left, keys, start, mid - 1);
             insert(node.left, keys, mid + 1, end);
@@ -122,58 +99,23 @@ class BinarySearchTree {
          return search(node.right, key); 
       }
    }
-}
+   
+   public static void main(String args[]) {
+      int[] key_values = {16, 70, 11, 23, 15, 25, 106};
+      BinarySearchTree bst = new BinarySearchTree(key_values);
+      
+      System.out.println("Inorder tree traversal");
+      bst.inorderTraversal(bst.root, false);
+      
+      int search_key = 110;
+      Node node = bst.search(bst.root, search_key);
+      
+      if(node != null){
+         System.out.println("Found " + node.data + " at layer: " + bst.getLayer());
+         
+      }else{
+         System.out.println(search_key + " not found");
+      }
 
-
-
-public class IRSystem {
-    HashMap<String, Integer> countMap = new HashMap<>();
-    
-    private String[] parse(String filename) throws IOException{
-        FileReader reader = new FileReader(filename);
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        String readerString ="";
-        String holdString = "";
-        while((readerString=bufferedReader.readLine())!=null){
-            holdString+= readerString + " ";
-        }
-        holdString = holdString.toLowerCase();
-        String[] returnTokens = holdString.split(" ");
-        bufferedReader.close();
-        return returnTokens;
-    }
-
-    private void countTerms(String[] terms){
-
-        for (String element : terms){
-            if (countMap.containsKey(element)){
-                countMap.replace(element, countMap.get(element).intValue()+1);
-            }
-            if (!(countMap.containsKey(element))){
-                countMap.put(element, 1);
-            }
-        }
-        System.out.println(countMap.toString());
-
-    }
-
-    private TermEntry singleTermQuery(Node node, String term){
-        return null;
-    }
-
-    public static void main(String[] args) throws IOException {
-        IRSystem irSystem = new IRSystem();
-        String[] terms = irSystem.parse("ADSaA\\Assignments\\A02\\quotes.txt");
-
-        irSystem.countTerms(terms);
-
-        LinkedList<TermEntry> list = new LinkedList<>();
-
-        for (String element : irSystem.countMap.keySet()){
-            TermEntry termEntry = new TermEntry(element, irSystem.countMap.get(element));
-            list.add(termEntry);
-        }
-
-        BinarySearchTree bst = new BinarySearchTree(list);
-    }
+   }
 }
