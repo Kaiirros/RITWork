@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- ISTE240 Exercise 5d -->
+<meta charset=utf-8 />
+<title>Mouseover Red and Bold</title>
+</head> 
+<body>
+	<div>
+		<h2>JavaScript Exercise 5d </h2> 
+	</div>
+	<div>
+		<p id="rb">This sentence will turn red when you mouseover it.</p>
+	</div>
+
+	<script>
+		document.getElementById("rb").onmouseover = function() {mouseOver()};
+		document.getElementById("rb").onmouseout = function() {mouseOut()};
+		
+		function mouseOver() {
+		  document.getElementById("rb").style.color = "red";
+		}
+		
+		function mouseOut() {
+		  document.getElementById("rb").style.color = "black";
+		}
+		
+		</script>
+</body>
+</html>
