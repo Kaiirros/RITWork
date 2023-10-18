@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- DANIEL MCKEE -->
+
+    <!-- 10/17/2023 -->
+    
+    <!--ISTE240 Exercise 5 – JavaScript Part 1 -->
+<meta charset=utf-8>
+<title>Exercise 05</title>
+<link rel="stylesheet" href="EX05.CSS">
+</head> 
+<body>
+    <!--EX05a-->
+	<div>
+		<h2>JavaScript Exercise 5a </h2> 
+		<p id="text">This style of this paragraph will change when you click the button below.</p>
+	</div>
+	<div>
+		<button id="styleMe" onclick="jsStyle()">Change Style</button>
+	</div>
+
+    <hr>
+    <!--EX05b-->
+    <h2>JavaScript Exercise 5b </h2> 
+	<form id="regForm">
+		First name: <input type="text" id="fname" value="Boo"><br>
+		Last name: <input type="text" id="lname" value="Radley"><br>
+		<input type="button" onclick="getFormValues();" value="Submit">
+	</form>
+
+    <hr>
+    <!--EX05c-->
+    <h2>JavaScript Exercise 5c</h2> 
+    <form>
+        <select id="mySelect">
+            <option>Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+            <option>Yellow</option>
+            <option>Orange</option>
+            <option>Purple</option>
+        </select>
+        <input type="button" onclick="getOptions()" value="Display the Options">
+    </form>
+
+    <hr>
+    <!--EX05d-->
+
+    <div>
+		<h2>JavaScript Exercise 5d </h2> 
+	</div>
+	<div>
+		<p id="rb">This sentence will turn red when you mouseover it.</p>
+	</div>
+
+    <hr>
+    <!--EX05e-->
+
+    <div>
+		<h2>JavaScript Exercise 5e</h2> 
+	</div>
+	<form>
+		<input type="text" id="firstoperand" placeholder="First Operand"><br>
+		<input type="text" id="secondoperand" placeholder="Second Operand"><br>
+		<input type="button" onclick="divide()" value="Divide">
+		<input type="button" onclick="multiply()" value="Multiply">
+		<p>The answer: <span id="result"></span></p>
+	</form>
+
+
+
+</body>
+<script src="EX05.js"></script>
+</html>

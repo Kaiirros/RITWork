@@ -7,34 +7,7 @@
 body {margin-left:100px;}
 </style>
 
-<script>
-// code two functions multiply and divide functions here
-var first;
-var second;
-function multiply(){
-	first = document.getElementById("firstoperand").value
-	second = document.getElementById("secondoperand").value
-
-	answer = (parseInt(first)*parseInt(second));
-
-	document.getElementById("result").textContent = answer;
-}
-function divide(){
-	first = document.getElementById("firstoperand").value
-	second = document.getElementById("secondoperand").value
-
-	answer = (parseInt(first)/parseInt(second));
-
-	document.getElementById("result").textContent = answer;
-
-
-}
-	//hints:
-		//when you get a value out of an input, you are getting a string.  To get a number, use parseInt()
-		//When you want to output something into the HTML you can use .innerHTML - like document.getElementById("result").innerHTML= "fred";
-
-
-</script>
+<script src="EX05.js"></script>
 
 </head>
 <body>
