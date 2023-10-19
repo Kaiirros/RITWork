@@ -3,6 +3,7 @@ package A02;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -28,8 +29,7 @@ class TermEntry implements Comparable<TermEntry>{
 
    @Override
    public int compareTo(TermEntry o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+      return this.term.compareTo(o.term);
    }
 }
 
@@ -46,10 +46,10 @@ class Node {
 
 class BinarySearchTree {
    Node root; // root node of the entire tree
-   int layer = 0;
    
    public BinarySearchTree(LinkedList<TermEntry> keys) {
      // sort keys in ascending order
+      Collections.sort(keys);
       int start = 0;
       int end = keys.size() - 1;
       int mid = (start + end) / 2;
@@ -81,13 +81,14 @@ class BinarySearchTree {
       // print the contents of the tree in increasing order
       if(node != null) {
          if (!reverse){
-            inorderTraversal(node.left, reverse);
-            System.out.println("Visited " + node.data); // print node's key value
-            inorderTraversal(node.right, reverse);            
-         } else {
             inorderTraversal(node.right, reverse);
             System.out.println("Visited " + node.data); // print node's key value
-            inorderTraversal(node.left, reverse);  
+            inorderTraversal(node.left, reverse);
+         } else {
+
+            inorderTraversal(node.left, reverse);
+            System.out.println("Visited " + node.data); // print node's key value
+            inorderTraversal(node.right, reverse);   
          }
 
       }
@@ -109,24 +110,19 @@ class BinarySearchTree {
       }
    }
 
-   public String getLayer(){
-      return String.valueOf(layer);
-   }
    
-   public Node search(Node node, TermEntry key) {
+   public TermEntry search(Node node, String key) {
       if(node == null)
          // hitting an empty node means search has failed
          return null;
-      if(node.data == key)
+      if(node.data.getTerm().equals(key))
          // found a match, return the Node's data
-         return node;
-      else if(node.data.getTerm().compareTo(key.getTerm()) > 0){
+         return node.data;
+      else if(node.data.getTerm().compareTo(key) < 0){
          // need to search the left subtree since key is less than node value
-         layer++;
          return search(node.left, key);
       }else{
          // key value is larger than current node, search right subtree
-         layer++;
          return search(node.right, key); 
       }
    }
@@ -136,6 +132,11 @@ class BinarySearchTree {
 
 public class IRSystem {
     HashMap<String, Integer> countMap = new HashMap<>();
+    BinarySearchTree bst;
+
+    public void setBst(BinarySearchTree bst){
+      this.bst = bst;
+    }
     
     private String[] parse(String filename) throws IOException{
         FileReader reader = new FileReader(filename);
@@ -161,28 +162,96 @@ public class IRSystem {
                 countMap.put(element, 1);
             }
         }
-        //System.out.println(countMap.toString());
 
     }
 
-    private TermEntry singleTermQuery(Node node, String term){
-        return null;
-    }
+   private TermEntry singleTermQuery(Node node, String term){
+      return bst.search(node, term);
+   }
+
+   private boolean andQuery(String term1, String term2){
+
+      if (singleTermQuery(bst.root, term1) != null){
+         if (singleTermQuery(bst.root, term2) != null){
+            return true;
+         }
+      }
+
+      return false;
+   }
+
+   private boolean orQuery(String term1, String term2){
+
+      if (singleTermQuery(bst.root, term1) != null){
+         return true;
+      }
+      if (singleTermQuery(bst.root, term2) != null){
+         return true;
+      }
+      return false;
+   }
 
     public static void main(String[] args) throws IOException {
-        IRSystem irSystem = new IRSystem();
-        String[] terms = irSystem.parse("ADSaA\\Assignments\\A02\\quotes.txt");
+         IRSystem irSystem = new IRSystem();
+         String[] terms = irSystem.parse("ADSaA\\Assignments\\A02\\quotes.txt");
 
-        irSystem.countTerms(terms);
+         irSystem.countTerms(terms);
 
-        LinkedList<TermEntry> list = new LinkedList<>();
+         LinkedList<TermEntry> list = new LinkedList<>();
 
-        for (String element : irSystem.countMap.keySet()){
+         for (String element : irSystem.countMap.keySet()){
             TermEntry termEntry = new TermEntry(element, irSystem.countMap.get(element));
             list.add(termEntry);
-        }
-        BinarySearchTree bst = new BinarySearchTree(list);
-        bst.inorderTraversal(bst.root, false);
-      
+         }
+         BinarySearchTree bst = new BinarySearchTree(list);
+         //bst.inorderTraversal(bst.root, false);
+         irSystem.setBst(bst);
+
+         System.out.println("1 ------------------------");
+         bst.inorderTraversal(bst.root, false);
+
+         System.out.println("2 ------------------------");
+         TermEntry found = irSystem.singleTermQuery(bst.root, "all");
+
+         if(found != null){
+            System.out.println("Found: '" + found.getTerm() + "' with a count of:  " + found.getCount());
+         }else{
+            System.out.println("'" + found + "' not found");
+         }
+
+         System.out.println("3 ------------------------");
+         found = irSystem.singleTermQuery(bst.root, "carrying");
+
+         if(found != null){
+            System.out.println("Found: '" + found.getTerm() + "' with a count of:  " + found.getCount());
+         }else{
+            System.out.println("'" + found + "' not found");
+         }
+
+         System.out.println("4 ------------------------");
+         String term = "robot";
+         found = irSystem.singleTermQuery(bst.root, term);
+
+         if(found != null){
+            System.out.println("Found: '" + found.getTerm() + "' with a count of:  " + found.getCount());
+         }else{
+            System.out.println("'" + term + "' not found");
+         }
+
+         System.out.println("5 ------------------------");
+         System.out.println("Successful?: " + irSystem.andQuery("seattle","mariners"));
+
+         System.out.println("6 ------------------------");
+         System.out.println("Successful?: " + irSystem.andQuery("seattle","pilots"));
+
+         System.out.println("7 ------------------------");
+         System.out.println("Successful?: " + irSystem.orQuery("four","score"));
+
+         System.out.println("8 ------------------------");
+         System.out.println("Successful?: " + irSystem.orQuery("five","score"));
+
+         System.out.println("9 ------------------------");
+         System.out.println("Successful?: " + irSystem.orQuery("five","robots"));
+
     }
 }
