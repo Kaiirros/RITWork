@@ -3,34 +3,40 @@
 <head>
     <!-- DANIEL MCKEE -->
 
-    <!-- 10/17/2023 -->
+    <!-- 10/22/2023 -->
     
-    <!--ISTE240 Exercise 5 – JavaScript Part 1 -->
+    <!--ISTE240 Exercise 6 – JavaScript Part 2 -->
 <meta charset=utf-8>
 <title>Exercise 05</title>
-<link rel="stylesheet" href="EX05.CSS">
+<link rel="stylesheet" href="EX06.CSS">
 </head> 
 <body>
-    <!--EX05a-->
+    <!--EX06a-->
 	<div>
 		<h2>JavaScript Exercise 5a </h2> 
-		<p id="text">This style of this paragraph will change when you click the button below.</p>
+		<p id="text" style="position: relative; left: 0px;">This style of this paragraph will change when you click the button below.</p>
 	</div>
 	<div>
 		<button id="styleMe" onclick="jsStyle()">Change Style</button>
+        <button id="moveMe" onclick="moveText()">Move the Text</button>
 	</div>
 
     <hr>
-    <!--EX05b-->
+    <!--EX06b-->
     <h2>JavaScript Exercise 5b </h2> 
 	<form id="regForm">
 		First name: <input type="text" id="fname" value="Boo"><br>
 		Last name: <input type="text" id="lname" value="Radley"><br>
+
+        <input type="checkbox" id="dog">I have a dog. (Check if you do)<br>
+        <input type="text" id="major" placeholder = "*Dog Name"><br>
+        <input type="button" onclick="howMany();" value="Count of inputs">
 		<input type="button" onclick="getFormValues();" value="Submit">
 	</form>
 
     <hr>
-    <!--EX05c-->
+    <!--EX06c-->
+    <div id="colorDiv">
     <h2>JavaScript Exercise 5c</h2> 
     <form>
         <select id="mySelect">
@@ -41,21 +47,22 @@
             <option>Orange</option>
             <option>Purple</option>
         </select>
-        <input type="button" onclick="getOptions()" value="Display the Options">
+        <input type="button" onclick="colorChanger()" value="Choose">
     </form>
+    </div>
 
     <hr>
-    <!--EX05d-->
+    <!--EX06d-->
 
     <div>
 		<h2>JavaScript Exercise 5d </h2> 
 	</div>
 	<div>
-		<p id="rb">This sentence will turn red when you mouseover it.</p>
+		<p id="rb">This sentence will turn whichever color you choose when you mouseover it.</p>
 	</div>
 
     <hr>
-    <!--EX05e-->
+    <!--EX06e-->
 
     <div>
 		<h2>JavaScript Exercise 5e</h2> 
@@ -71,5 +78,5 @@
 
 
 </body>
-<script src="EX05.js"></script>
+<script src="EX06.js"></script>
 </html>

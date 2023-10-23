@@ -2,9 +2,16 @@ function jsStyle() {
     // function to change style
     // Change the color and the size of the font
     // in the paragraph with id='text'
-    var text = document.getElementById("text");
+
     text.style.color = "red";
     text.style.fontSize = "2rem";
+
+}
+
+function moveText(){
+    var text = document.getElementById("text");
+	pos = text.style.left;
+	text.style.left = (parseInt(pos) + 10) + "px";
 }
 
 function getFormValues() {
@@ -15,16 +22,29 @@ function getFormValues() {
     alert(fname + " " + lname)
 }
 
-function getOptions() {
-	// function to display the number of options in an alert()
-	var options = document.getElementsByTagName("option")
-	var optionsList = "Options: \n";
-	var array = Array.from(options)
-	array.forEach(element => {
-		optionsList += element.value + "\n"
-	});
+function howMany(){
+	inputCount = 0;
+	textCount = 0;
 
-	alert(optionsList)
+	form = document.getElementById("regForm");
+	array = form.getElementsByTagName("input");
+
+	for (i = 0; i < array.length; i++){
+		inputCount++;
+		if (array[i].type == "text"){
+			textCount++;
+		}
+	}
+
+
+	console.log("Total Input Elements: " + inputCount)
+	console.log("Total Text Input Elements: " + textCount)
+	
+}
+
+function colorChanger() {
+	color = document.getElementById("mySelect").value;
+	document.getElementById("colorDiv").style.backgroundColor = color;
 
 }
 //Mouse over Functions
@@ -32,7 +52,7 @@ document.getElementById("rb").onmouseover = function() {mouseOver()};
 document.getElementById("rb").onmouseout = function() {mouseOut()};
 
 function mouseOver() {
-  document.getElementById("rb").style.color = "red";
+  document.getElementById("rb").style.color = document.getElementById("mySelect").value;
 }
 
 function mouseOut() {
@@ -47,15 +67,16 @@ function multiply(){
 
 	answer = (parseInt(first)*parseInt(second));
 
-	document.getElementById("result").textContent = answer;
+
+	document.getElementById("result").appendChild(document.createTextNode(answer));
+
 }
 function divide(){
 	first = document.getElementById("firstoperand").value
 	second = document.getElementById("secondoperand").value
 
 	answer = (parseInt(first)/parseInt(second));
-
-	document.getElementById("result").textContent = answer;
+	document.getElementById("result").appendChild(document.createTextNode(answer));
 
 
 }
