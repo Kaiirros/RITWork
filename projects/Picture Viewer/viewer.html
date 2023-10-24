@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            margin: 0;
+            height:100%;
+
+        }
+        .flex{
+            display: flex;
+            padding: 2rem;
+            flex-direction: column;
+
+            background: lightblue;
+        }
+
+        img{
+            height: 8rem;
+            width: 8rem;
+            background-color: aquamarine;
+        }
+
+    </style>
+    <script src="pictureViewer.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <div class="flex">
+        <div class="container">
+            <img src="npkrka1.png" onclick="viewPhoto(this,'container')">
+            <img src="npkrka1.png" onclick="viewPhoto(this,'container')">
+            <img src="npkrka1.png" onclick="viewPhoto(this,'container')">
+            <img src="npkrka1.png" onclick="viewPhoto(this,'container')">
+        </div>
+    </div>
+    
+</body>
+</html>
