@@ -1,6 +1,7 @@
 
 function viewPhoto(image, containerID){
 
+    //New Image Copy
     let copyImage = new Image();
     copyImage.src = image.src;
     copyImage.style.position = "sticky";
@@ -9,11 +10,6 @@ function viewPhoto(image, containerID){
     copyImage.style.height = "30rem";
     copyImage.style.left = "50%";
     copyImage.style.transform = "translateX(-50%)";
-
-    document.getElementById("content").style.filter = "blur(5px)";
-    copyImage.style.filter = "none";
-
-    document.getElementById("body").appendChild(copyImage);
 
     //Image Close Button
     newDiv = document.createElement("div");
@@ -24,18 +20,21 @@ function viewPhoto(image, containerID){
     newDiv.style.width = "5rem";
     newDiv.style.height = "5rem";
     newDiv.id = "close"
+    //---------------------
+
+    document.getElementById("content").style.filter = "blur(5px)";
+    copyImage.style.filter = "none";
+
+    document.getElementById("body").appendChild(copyImage);
+    
     document.getElementById("body").appendChild(newDiv);
+    document.getElementById("close").onclick = closePhoto;
 
-    //document.getElementById("close").addEventListener("click", closePhoto(copyImage));
-}
-
-function closePhoto(copyImage){
-    console.log("Removing child...");
-    console.log(copyImage);
-
-    if (copyImage.parentNode){
+    function closePhoto(){
+        newDiv.parentNode.removeChild(newDiv);
         copyImage.parentNode.removeChild(copyImage);
+    
+        document.getElementById("content").style.filter = "blur(0px)";
     }
-
-    //document.getElementById("content").style.filter = "blur(0px)";
 }
+
