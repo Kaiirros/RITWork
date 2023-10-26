@@ -171,10 +171,8 @@ public class IRSystem {
 
    private boolean andQuery(String term1, String term2){
 
-      if (singleTermQuery(bst.root, term1) != null){
-         if (singleTermQuery(bst.root, term2) != null){
-            return true;
-         }
+      if (singleTermQuery(bst.root, term1) != null && singleTermQuery(bst.root, term2) != null){
+         return true;
       }
 
       return false;
@@ -182,10 +180,7 @@ public class IRSystem {
 
    private boolean orQuery(String term1, String term2){
 
-      if (singleTermQuery(bst.root, term1) != null){
-         return true;
-      }
-      if (singleTermQuery(bst.root, term2) != null){
+      if (singleTermQuery(bst.root, term1) != null || singleTermQuery(bst.root, term2) != null){
          return true;
       }
       return false;
