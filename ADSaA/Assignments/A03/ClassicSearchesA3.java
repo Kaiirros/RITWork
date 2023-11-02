@@ -74,7 +74,11 @@ public class ClassicSearchesA3 {
    }
 
    static int[] generateArrayPrime(int[] array){
-
+      Random random = new Random();
+      random.nextInt(10000);
+      for(int i = 0; i < array.length; i++){
+         array[i] = random.nextInt(10000);
+      }
       return null;
    }
 
@@ -97,18 +101,28 @@ public class ClassicSearchesA3 {
    }
 
    public static void main(String[] args) {
-      int index;
-      int[] array = generateArray();
-        
-      Arrays.sort(array);
-      printArray(array);
 
-      for (int i = 0; i < 1000; i++){
+      int index = 0;
+      ArrayList<Integer> averages = new ArrayList<>();      
+      for (int j = 0; j < 100; j++){ // Generating the 100 data sets
 
-         searchResult("Linear", array[i], linearSearchOrdered(array, array[i]));
-         //searchResult("Binary", array[i], binarySearch(array, array[i]));
-         //searchResult("Interpolation", array[i], interpolationSearch(array, array[i]));         
+         int[] array = generateArray();
+         Arrays.sort(array);
+         index = 0;
+
+         for (int i = 0; i < 1000; i++){ // Searches for each element in the data sets
+
+            //searchResult("Linear", array[i], linearSearchOrdered(array, array[i]));
+            searchResult("Binary", array[i], binarySearch(array, array[i]));
+            //searchResult("Interpolation", array[i], interpolationSearch(array, array[i]));
+            index += ClassicSearchesA3.ops;
+            
+         }
+         index = index/1000;  
+         averages.add(index);          
       }
+      System.out.println(averages);
+
 
    }
 }
