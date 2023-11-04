@@ -1,24 +1,27 @@
 
-function viewPhoto(image, containerID){
+function viewPhoto(image){
 
     //New Image Copy
     let copyImage = new Image();
     copyImage.src = image.src;
-    copyImage.style.position = "sticky";
+    copyImage.style.position = "fixed";
     copyImage.style.zIndex = "5";
     copyImage.style.width = "30rem";
     copyImage.style.height = "30rem";
     copyImage.style.left = "50%";
-    copyImage.style.transform = "translateX(-50%)";
+    copyImage.style.transform = "translate(-50%, -50%)";
 
     //Image Close Button
     newDiv = document.createElement("div");
-    newDiv.style.position = "absolute";
+    newDiv.style.position = "fixed";
+    newDiv.style.backgroundColor = "red";
+    newDiv.style.zIndex = "5";
+    newDiv.style.width = "4rem";
+    newDiv.style.height = "4rem";
     newDiv.style.top = "0";
     newDiv.style.right = "0";
-    newDiv.style.backgroundColor = "red";
-    newDiv.style.width = "5rem";
-    newDiv.style.height = "5rem";
+    newDiv.style.backgroundImage = "url(cross.webp)"
+    newDiv.style.backgroundSize = "cover";
     newDiv.id = "close"
     //---------------------
 
