@@ -74,10 +74,10 @@ public class ClassicSearchesA3 {
    }
 
    static int[] generateArrayPrime(int[] array){
-      Random random = new Random();
-      random.nextInt(10000);
+      HashSet<Integer> hashSet = new HashSet<>();
       for(int i = 0; i < array.length; i++){
-         array[i] = random.nextInt(10000);
+         if (hashSet)
+         
       }
       return null;
    }
