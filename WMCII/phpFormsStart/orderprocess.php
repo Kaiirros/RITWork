@@ -10,11 +10,11 @@
         if (!empty($_POST["customerID"]) && is_numeric($_POST["customerID"])){
             $customerName = $_POST["customerName"];
             $customerID = $_POST["customerID"];
-            $pizzaSize = $_POST["pizzaSize"];   
+            $pizzaSize = $_POST["pizzaSize"]; 
+            $toppings = $_POST['pizzaToppings'];
 
             echo "Customer Name: " . $customerName . "<br>"; 
             echo "Customer ID: " . $customerID . "<br>"; 
-            echo "Pizza Size: " . $pizzaSize . "<br>"; 
 
             switch($pizzaSize){
                 case 'P':
@@ -38,18 +38,44 @@
                     $pizzaCost = 13.99;
                     $pizzaType = "Medium";
             }
+
+            // Secondary Switch Statement for determining topping costs
+            switch($toppings){
+                case '0':
+                    $toppingCost = 0;
+                    $pizzaCost += $toppingCost;
+                    break;
+                case '1':
+                    $toppingCost = 2.00;
+                    $pizzaCost += $toppingCost;
+                    break;
+                case '2':
+                    $toppingCost = 3.00;
+                    $pizzaCost += $toppingCost;
+                    break;
+                case '3':
+                    $toppingCost = 3.75;
+                    $pizzaCost += $toppingCost;
+                    break;
+    
+                default:
+                    $pizzaCost += 0;
+            }
+
             $taxAmount = $pizzaCost *.08;
-            $total = $pizzaCost + $taxAmount;
+            //Calculated new cost with topping included
+            $total = $pizzaCost + $taxAmount + $toppingCost;
     
             $fmt = numfmt_create('en_US', NumberFormatter::CURRENCY);
             $pizzaCost = numfmt_format_currency($fmt, $pizzaCost, "USD");
             $taxAmount = numfmt_format_currency($fmt, $taxAmount, "USD");
             echo "Pizza Size: " . $pizzaType . "<br>";
             echo "Subtotal: " . $pizzaCost . "<br>";
+            echo "Topping Price: " . $toppingCost . "<br>";
             echo "Tax: " . $taxAmount . "<br>";
             echo "Total: " . numfmt_format_currency($fmt, $total, "USD") . "<br>";
     
-            echo "Thank you for your order, " . $customerName . "!" . "<br>";
+            echo "<h3> Thank you for your order, " . $customerName . "! </h3>" . "<br>";
             echo "ID: " . $customerID;
 
         } else {
@@ -57,12 +83,6 @@
             echo "Invalid ID";
         }
 
-
-        
-
-
-
- 
     ?>
 </div>
 
