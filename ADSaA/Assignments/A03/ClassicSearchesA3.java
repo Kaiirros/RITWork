@@ -80,7 +80,16 @@ public class ClassicSearchesA3 {
       for (int i = 0; i < array.length; i++){
          hashSet.add(array[i]);
       }
-      System.out.println(hashSet);
+      Random random = new Random();
+
+
+      for (int i = 0; i < hashSet.size(); i++){
+         int rand = random.nextInt(10000);
+
+         if (!hashSet.contains(rand)){
+            arrayPrime[i] = rand;
+         }
+      }
 
       return arrayPrime;
    }
@@ -104,7 +113,6 @@ public class ClassicSearchesA3 {
    }
 
    public static void main(String[] args) {
-
       int foundIndex = 0;
       int notFoundIndex = 0;
       ArrayList<Integer> foundAverages = new ArrayList<>();      
@@ -113,8 +121,16 @@ public class ClassicSearchesA3 {
 
          int[] array = generateArray();
          Arrays.sort(array);
+         System.out.println("A: ");
+         for (int i = 0; i < 50; i++){
+            System.out.println(array[i]);
+         }
          int[] arrayPrime = generateArrayPrime(array);         
          Arrays.sort(arrayPrime);
+         System.out.println("A Prime: ");
+         for (int i = 0; i < 50; i++){
+            System.out.println(arrayPrime[i]);
+         }
          foundIndex = 0;
          notFoundIndex = 0;
 
@@ -130,7 +146,7 @@ public class ClassicSearchesA3 {
 
          foundIndex = foundIndex/1000;  
          foundAverages.add(foundIndex);
-*/
+
 
          for (int i = 0; i < 1000; i++){ // Searches for each element in the data sets
 
@@ -142,7 +158,7 @@ public class ClassicSearchesA3 {
 
          notFoundIndex = notFoundIndex/1000;  
          notFoundAverages.add(notFoundIndex);
-         
+*/
       }
       
    
