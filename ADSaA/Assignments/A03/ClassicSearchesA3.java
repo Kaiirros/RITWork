@@ -83,11 +83,13 @@ public class ClassicSearchesA3 {
       Random random = new Random();
 
 
-      for (int i = 0; i < hashSet.size(); i++){
+      for (int i = 0; i < arrayPrime.length; i++){
          int rand = random.nextInt(10000);
 
          if (!hashSet.contains(rand)){
             arrayPrime[i] = rand;
+         } else {
+            arrayPrime[i] = rand+2;
          }
       }
 
@@ -113,58 +115,59 @@ public class ClassicSearchesA3 {
    }
 
    public static void main(String[] args) {
-      int foundIndex = 0;
-      int notFoundIndex = 0;
-      ArrayList<Integer> foundAverages = new ArrayList<>();      
-      ArrayList<Integer> notFoundAverages = new ArrayList<>(); 
-      //for (int j = 0; j < 100; j++){ // Generating the 100 data sets
+      double foundIndex = 0;
+      double notFoundIndex = 0;
+      double foundIndex2 = 0;
+      double notFoundIndex2 = 0;
+      for (int j = 0; j < 100; j++){ // Generating the 100 data sets
 
          int[] array = generateArray();
          Arrays.sort(array);
-         System.out.println("A: ");
-         for (int i = 0; i < 50; i++){
-            System.out.println(array[i]);
-         }
+
          int[] arrayPrime = generateArrayPrime(array);         
          Arrays.sort(arrayPrime);
-         System.out.println("A Prime: ");
-         for (int i = 0; i < 50; i++){
-            System.out.println(arrayPrime[i]);
-         }
+
          foundIndex = 0;
          notFoundIndex = 0;
 
-/*
+
          for (int i = 0; i < 1000; i++){ // Searches for each element in the data sets
 
-            //searchResult("Linear", array[i], linearSearchOrdered(array, array[i]));
-            //searchResult("Binary", array[i], binarySearch(array, array[i]));
-            //searchResult("Interpolation", array[i], interpolationSearch(array, array[i]));
-            //foundIndex += ClassicSearchesA3.ops;
+            /*
+             * Remove "//" to select search to run
+             */
+
+            //linearSearchOrdered(array, array[i]);
+            //binarySearch(array, array[i]);
+            interpolationSearch(array, array[i]);
+            foundIndex += ClassicSearchesA3.ops;
          }
+         foundIndex2 += foundIndex;
          
 
-         foundIndex = foundIndex/1000;  
-         foundAverages.add(foundIndex);
 
+         for (int i = 0; i < 1000; i++){ // Searches for each element NOT in the data sets
 
-         for (int i = 0; i < 1000; i++){ // Searches for each element in the data sets
+            /*
+             * Remove "//" to select search to run
+             */
 
-            searchResult("Linear", array[i], linearSearchOrdered(arrayPrime, array[i]));
-            //searchResult("Binary", array[i], binarySearch(arrayPrime, array[i]));
-            //searchResult("Interpolation", array[i], interpolationSearch(arrayPrime, array[i]));
+            //linearSearchOrdered(arrayPrime, array[i]);
+            //binarySearch(arrayPrime, array[i]);
+            interpolationSearch(arrayPrime, array[i]);
             notFoundIndex += ClassicSearchesA3.ops;
          }
+         notFoundIndex2 += notFoundIndex;
 
-         notFoundIndex = notFoundIndex/1000;  
-         notFoundAverages.add(notFoundIndex);
-*/
+
       }
+      foundIndex = (foundIndex2/1000)/100;
+      notFoundIndex = (notFoundIndex2/1000)/100;
       
    
-      //System.out.println("Found Averages: " + foundAverages);
-      //System.out.println("Not Found Averages: " + notFoundAverages);
+      System.out.println("\n\nFound Average: " + foundIndex);
+      System.out.println("Not Found Average: " + notFoundIndex + "\n\n");
 
    
-   //}
+   }
 }
