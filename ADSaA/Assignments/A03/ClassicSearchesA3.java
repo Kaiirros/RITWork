@@ -75,23 +75,17 @@ public class ClassicSearchesA3 {
 
    static int[] generateArrayPrime(int[] array){
       int[] arrayPrime = new int[1000];
-      HashSet<Integer> hashSet = new HashSet<>();
-
-      for (int i = 0; i < array.length; i++){
-         hashSet.add(array[i]);
-      }
       Random random = new Random();
-
-
+      int rand;
+      
       for (int i = 0; i < arrayPrime.length; i++){
-         int rand = random.nextInt(10000);
+         
+         do{
+            rand = random.nextInt(10000);
 
-         if (!hashSet.contains(rand)){
-            arrayPrime[i] = rand;
-         } else {
-            arrayPrime[i] = rand+2;
+         } while(interpolationSearch(array, rand) != -1);
+         arrayPrime[i] = rand;
          }
-      }
 
       return arrayPrime;
    }
@@ -137,9 +131,9 @@ public class ClassicSearchesA3 {
              * Remove "//" to select search to run
              */
 
-            //linearSearchOrdered(array, array[i]);
+            linearSearchOrdered(array, array[i]);
             //binarySearch(array, array[i]);
-            interpolationSearch(array, array[i]);
+            //interpolationSearch(array, array[i]);
             foundIndex += ClassicSearchesA3.ops;
          }
          foundIndex2 += foundIndex;
@@ -152,9 +146,9 @@ public class ClassicSearchesA3 {
              * Remove "//" to select search to run
              */
 
-            //linearSearchOrdered(arrayPrime, array[i]);
+            linearSearchOrdered(arrayPrime, array[i]);
             //binarySearch(arrayPrime, array[i]);
-            interpolationSearch(arrayPrime, array[i]);
+            //interpolationSearch(arrayPrime, array[i]);
             notFoundIndex += ClassicSearchesA3.ops;
          }
          notFoundIndex2 += notFoundIndex;
