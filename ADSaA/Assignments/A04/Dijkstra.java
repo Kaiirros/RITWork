@@ -1,10 +1,16 @@
 import java.util.LinkedList;
 import java.util.ListIterator;
 
+
+class Edge {
+   int weight;
+   int endNode;
+}
+
 class WeightedGraph {
    private int N; // number of nodes in the graph
    private char[] names; // names of each node
-   private LinkedList<Edge> adj[]; // adjacency list for each node
+   private LinkedList<Integer> adj[]; // adjacency list for each node
    
    WeightedGraph(int numNodes, char[] nodeNames) {
       N = numNodes;
@@ -17,7 +23,7 @@ class WeightedGraph {
       }
    }
    
-   public void addEdge(Edge startNode, Edge endNode) {
+   public void addEdge(int startNode, int endNode) {
       adj[startNode].add(endNode);
    }
    
@@ -51,10 +57,7 @@ class WeightedGraph {
    }
 }
 
-class Edge {
 
-   int weight;
-}
 
 public class Dijkstra { 
    
