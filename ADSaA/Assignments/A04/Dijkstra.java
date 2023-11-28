@@ -76,7 +76,7 @@ class WeightedGraph {
 
 public class Dijkstra { 
    
-   static int[][] dijkstra(WeightedGraph graph, int source) { 
+   static int[] dijkstra(WeightedGraph graph, int source) { 
       int N = graph.getNumNodes();
       LinkedList<Edge> adj[] = graph.getAdjList();
       
@@ -87,13 +87,13 @@ public class Dijkstra {
       boolean visited[] = new boolean[N]; 
    
       // initialize shortest distance to all nodes as "infinity" 
-      for (int i = 0; i < N; i++)
+      for (int i = 0; i < N; i++){
          distances[i] = Integer.MAX_VALUE; 
-    
+      }
       distances[source] = 0; // distance from source node to itself is 0
    
       // find shortest path to all nodes 
-      for(int count = 0; count < N - 1; count++) { 
+      for(int count = 0; count < N; count++) { 
          // choose the minimum distance node from the set of nodes 
          // not yet visited 
          int min = Integer.MAX_VALUE;
@@ -108,7 +108,7 @@ public class Dijkstra {
       
          // mark the minimum distance node as visited
          visited[minIndex] = true; 
-         System.out.println("Visiting node " + minIndex);
+         System.out.println("Visiting node " + graph.getNodeNames()[minIndex]);  
 
          
       
@@ -119,12 +119,13 @@ public class Dijkstra {
             // via minimum distance node is smaller than current value
             // stored in distances 
             int neighbor = adj[minIndex].get(i).getEndNode();
-
+            
             if(!visited[i] && distances[minIndex] + distances[neighbor] < distances[i]){
                
             distances[i] = distances[minIndex] + distances[neighbor];
 
             }
+
          } 
       }  
       
@@ -171,7 +172,7 @@ public class Dijkstra {
 
       System.out.println(graph.toString());
 
-      int distances[] = dijkstra(graph, 0);
+      int distances[] = dijkstra(graph, 6);
       
       printDistances(distances, nodeNames);
    } 
