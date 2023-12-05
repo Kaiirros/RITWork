@@ -122,16 +122,11 @@ public class Dijkstra {
             } 
          }
 
-
-      
          // mark the minimum distance node as visited
          visited[minIndex] = true; 
 
          System.out.println("Visiting node " + graph.getNodeNames()[minIndex]);  
          int name = minIndex;
-
-
-
 
          for(int i = 0; i < adj[minIndex].size(); i++) {
             // Update distances only if node has not been visited, 
@@ -168,21 +163,22 @@ public class Dijkstra {
 
       for(int i = 0; i < distances[1].length; i++){
 
-         printPaths(i, distances[1], nodes, source);
-
+         if( i != source){
+            System.out.print("\n" + "Shortest path from " + nodes[source] + " to " + nodes[i] + "\t");
+            printPaths(i, distances[1], nodes, source);            
+         }
       }
 
    }
 
    static void printPaths(int current, int distances[], char[] nodes, int source){
-      // iterate through the previous nodes until you reach the target "i"
-        if (current == -1){
-            return;
-        }
+      if (current == -1){
+         return;
+      }
+      
+      printPaths(distances[current], distances, nodes, source);
 
-        printPaths(distances[current], distances, nodes, source);
-
-        System.out.print(nodes[current] + " -> ");
+      System.out.print(nodes[current] + " ");
    }
   
    public static void main(String[] args) 
@@ -220,6 +216,8 @@ public class Dijkstra {
       int distances[][] = dijkstra(graph, 6);
       
       printDistances(distances, nodeNames, 6);
+      
+      //Print Paths is called in the print distances method :)
 
    } 
 }
