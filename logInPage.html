@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
+</head>
+<style>
+    .login {
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20rem;
+        background-color: #D9D9D9;
+        padding: 2rem;
+        text-align: center;
+        font-family: 'Space Grotesk';
+        box-shadow: -8px 8px gray;
+    }
+    .loginText {
+        text-align: left;
+    }
+    
+    .loginInput{
+        width: 15rem;
+        height: 2rem;
+        font-size: 1rem;
+        border-style: none;
+        border-left: .15rem solid black;
+    }
+
+    .loginButton{
+        width: 15rem;
+        height: 3rem;
+        background-color: #539D63;
+        border-style: none;
+        border-bottom: .15rem solid white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #FFFFFF;
+
+    }
+
+    .registerButton {
+        height: 2.5rem;
+        width: 12rem;
+    }
+
+    .loginButton:hover{
+        cursor: pointer;
+        transition: .1s;
+        background-color: #FFFFFF;
+        color: #539D63;
+        border-bottom: .15rem solid #539D63;
+    }
+
+    .backgroundImage{
+        background-image: url("ISTE240/assets/photos/frankfurtSkyline.jpg");
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        
+    }
+    body,html {
+        height: 100%;
+        overflow: hidden;
+    }
+    .return{
+        float: left;
+        border-style: none;
+        height: 2rem;
+    }
+    .return:hover{
+        cursor:pointer;
+        transition: .1s;
+        background-color: gray;
+        color:white;
+    }
+
+</style>
+<body>
+    <div class="backgroundImage"></div>
+
+    <div class="logInContainer">
+
+
+        <form class="login" action="" method="get">
+
+            <h2>Please log in below to access the message board</h2>
+            <h3 class="loginText">Username:</h3>
+			<input class="loginInput" type="text" id="username" name="username"> <br> <br>
+            <h3 class="loginText">Password:</h3>
+			<input class="loginInput" type="password" id="password" name="password"> <br> <br>
+            <input class="loginButton" type="submit" value="Log in">
+            <br>
+            <h4>If you do not have an account, register here</h4>
+
+			<input class="loginButton registerButton" type="submit" value="Register"> <br><br>
+            <button class="return" onclick="window.location.href='google.com'">Return to Home</button>
+		</form>
+    </div>
+    
+</body>
+</html>

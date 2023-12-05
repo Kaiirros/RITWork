@@ -24,18 +24,30 @@ public class ImageProcessor {
          newGreen = average;
          newBlue = average;
       }
+
       if (type.equals("sepia")){
+         newRed = (int)(0.393 * red + 0.769 * green + 0.189 * blue);
+         if (newRed > 255){newRed=255;}
+
+         newGreen = (int)(0.349 * red + 0.686 * green + 0.168 * blue);
+         if (newGreen > 255){newGreen=255;}
+
+         newBlue = (int)(0.272 * red + 0.534 * green + 0.131 * blue);
+         if (newBlue > 255){newBlue=255;}
 
       }
-      if (type.equals("negative")){
 
+      if (type.equals("negative")){
+         newRed = 255 - red;
+         newGreen = 255 - green;
+         newBlue = 255 - blue;
       }
 
       // pack values back into the pixel
       p = 0;
       p |= newRed << 16;
       p |= newGreen << 8;
-      p |= newBlue;
+      p |= newBlue & a;
 
       return p;
    }
@@ -77,8 +89,8 @@ public class ImageProcessor {
    }
 
    public static void main(String args[]) {
-      processImage("ADSaA\\Exercises\\Taj.jpg", "ADSaA\\Exercises\\Taj_negative.jpg", "negative");
-      processImage("ADSaA\\Exercises\\Taj.jpg", "ADSaA\\Exercises\\Taj_sepia.jpg", "sepia");
-      processImage("ADSaA\\Exercises\\Taj.jpg", "ADSaA\\Exercises\\Taj_grayscale.jpg", "grayscale");
+      processImage("Taj.jpg", "Taj_negative.jpg", "negative");
+      processImage("Taj.jpg", "Taj_sepia.jpg", "sepia");
+      processImage("Taj.jpg", "Taj_grayscale.jpg", "grayscale");
    }
 }

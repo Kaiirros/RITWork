@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.LinkedList;
 
 
@@ -5,13 +6,17 @@ import java.util.LinkedList;
 class Edge {
    int weight;
    int endNode;
+   int startNode;
    char endNodeName;
+   char startNodeName;
 
 
-   Edge(char endNodeName, int weight, int endNode){
+   Edge(char startNodeName, char endNodeName, int weight, int startNode, int endNode){
       this.weight = weight;
       this.endNode = endNode;
       this.endNodeName = endNodeName;
+      this.startNode = startNode;
+      this.startNodeName = startNodeName;
    }
 
    public int getEdgeWeight(){
@@ -19,6 +24,16 @@ class Edge {
    }
    public int getEndNode(){
       return endNode;
+   }
+   public char getEndNodeName(){
+      return endNodeName;
+   }
+   public char getStartNodeName(){
+      return startNodeName;
+   }
+
+   public int getStartNode(){
+      return startNode;
    }
 
    public String toString(){
@@ -43,7 +58,7 @@ class WeightedGraph {
    }
    
    public void addEdge(int startNode, int endNode, int weight) {
-      Edge edge = new Edge(names[endNode], weight, endNode);
+      Edge edge = new Edge(names[startNode], names[endNode], weight, startNode, endNode);
 
       adj[startNode].add(edge);
    }
@@ -76,13 +91,14 @@ class WeightedGraph {
 
 public class Dijkstra { 
    
-   static int[] dijkstra(WeightedGraph graph, int source) { 
+   static int[][] dijkstra(WeightedGraph graph, int source) { 
       int N = graph.getNumNodes();
       LinkedList<Edge> adj[] = graph.getAdjList();
       
       // denotes shortest distance from source node to all other nodes
       int distances[] = new int[N]; 
       int previousNodes[] = new int[N];
+
       // indicates if the node has been visited or not (defaults to false)
       boolean visited[] = new boolean[N]; 
    
@@ -91,9 +107,9 @@ public class Dijkstra {
          distances[i] = Integer.MAX_VALUE; 
       }
       distances[source] = 0; // distance from source node to itself is 0
-   
+      previousNodes[source] = -1;
       // find shortest path to all nodes 
-      for(int count = 0; count < N; count++) { 
+      for(int count = 0; count < N-1; count++) { 
          // choose the minimum distance node from the set of nodes 
          // not yet visited 
          int min = Integer.MAX_VALUE;
@@ -105,13 +121,18 @@ public class Dijkstra {
                minIndex = i; 
             } 
          }
+
+
       
          // mark the minimum distance node as visited
          visited[minIndex] = true; 
-         System.out.println("Visiting node " + graph.getNodeNames()[minIndex]);  
 
-         
-      
+         System.out.println("Visiting node " + graph.getNodeNames()[minIndex]);  
+         int name = minIndex;
+
+
+
+
          for(int i = 0; i < adj[minIndex].size(); i++) {
             // Update distances only if node has not been visited, 
             // there is an edge from minimum distance node to node i,
@@ -119,25 +140,49 @@ public class Dijkstra {
             // via minimum distance node is smaller than current value
             // stored in distances 
             int neighbor = adj[minIndex].get(i).getEndNode();
-            
-            if(!visited[i] && distances[minIndex] + distances[neighbor] < distances[i]){
-               
-            distances[i] = distances[minIndex] + distances[neighbor];
+
+            if(!visited[neighbor] && distances[minIndex] + adj[minIndex].get(i).getEdgeWeight() < distances[neighbor]){
+
+            previousNodes[neighbor] = name;
+
+            distances[neighbor] = distances[minIndex] + adj[minIndex].get(i).getEdgeWeight();
 
             }
 
          } 
-      }  
-      
-      return distances;
+      }
+
+      int[][] twoDArray = {distances, previousNodes};
+
+      return twoDArray;
    } 
    
-   static void printDistances(int distances[], char[] nodes) { 
-      int N = distances.length;
-      System.out.println("Node  Distance"); 
-      
-      for(int i = 0; i < N; i++) 
-         System.out.println(nodes[i] + "\t\t" + distances[i]); 
+   static void printDistances(int distances[][], char[] nodes, int source) { 
+      int N = nodes.length;
+      System.out.println("Node \t   Distance \t Previous Node"); 
+      for(int i = 0; i < N; i++){
+
+         System.out.println(nodes[i] + "\t\t" + distances[0][i] + "\t\t" + distances[1][i]);
+
+      }
+
+      for(int i = 0; i < distances[1].length; i++){
+
+         printPaths(i, distances[1], nodes, source);
+
+      }
+
+   }
+
+   static void printPaths(int current, int distances[], char[] nodes, int source){
+      // iterate through the previous nodes until you reach the target "i"
+        if (current == -1){
+            return;
+        }
+
+        printPaths(distances[current], distances, nodes, source);
+
+        System.out.print(nodes[current] + " -> ");
    }
   
    public static void main(String[] args) 
@@ -172,8 +217,9 @@ public class Dijkstra {
 
       System.out.println(graph.toString());
 
-      int distances[] = dijkstra(graph, 6);
+      int distances[][] = dijkstra(graph, 6);
       
-      printDistances(distances, nodeNames);
+      printDistances(distances, nodeNames, 6);
+
    } 
 }
