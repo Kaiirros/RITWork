@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+</head>
+<body id="body">
+    <h1>Final Practical Review</h1>
+
+    <h2>Logistics</h2>
+
+    <p><strong>Timeframe:</strong> You will have 2.5 hours to complete the exam</p>
+
+    <p><strong>When?:</strong> See SIS for your exam time</p>
+
+    <strong>Resources Allowed: </strong><br/>
+    <ul>
+        <li>W3schools.com (you can't 'google', but you can use the built in w3schools.com search)</li>
+        <li>Mozzilla developer docs MDN</li>
+        <li>Complete guide to flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ </li>
+        <li>8.5 x 11 handwritten cheat sheet</li>
+    </ul>
+
+    <h2>What to Study?</h2>
+    <p>
+        The exam can cover material throughout the semester including responsive web design / media queries, 
+        Javascript, and PHP.  I know we don’t spend enough time to become experts in these areas; 
+        problems you need to solve will be very similar to the problems you had to solve in the 
+        homework. There were about 8 HWs so if you feel comfortable being able to do that work 
+        again you may be prepared, so I encourage everyone to go through the homework again as 
+        many completed a long time ago.  The exam is two and a half hours; it is designed to be 
+        finished in that time; however if you need to spend significant time looking things up 
+        and debugging things you risk running out of time.
+    </p>
+
+    <h2>In Class Review</h2>
+
+    <h3>Media Queries &amp; CSS Display Property, and CSS Position Property</h3>
+    <p>In the interest of time I will not go through all of this so we can do JS and PHP in class.
+        Please make sure you can make some basic media quereies, and are prepared to do some CSS layout
+        with flexbox.  PLEASE REVIEW THIS ON YOUR OWN.
+    </p>
+    <h4>CSS Ex1</h4>
+    <p>Use CSS position to put the red square on top of the 300x200px image above it. Position it so it sits towards the bottom right hand side.
+        You May add additional elements and containers as needed.
+    </p>
+    <style>
+        #square{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width:20px;
+            height:20px;
+            background:red;
+        }
+        #container{
+            position: relative;
+            width: fit-content;
+            height: min-content;
+        }
+    </style>
+    <div id="container">
+        <img src="https://placehold.co/300x200/EEE/31343C" width="300" height="200"/>
+        <div id="square"></div>
+    </div>
+    </body>
+    <h3>Javascript</h3>
+    <p>We learned lots of fundamental Javascript this semester. Be prepared to do some simple tasks in 
+        Javascript like we did in in class demos and homeworks. This could include things like changing 
+        the styles of elements on a page (DHTML), getting data from form elements, simple animations 
+        (moving things), and adding new content/elements to the page (innerHTML will be acceptable to 
+        use during the practical). You may also be expected to do some basic form validation that 
+        prevents a form from submitting if it is not valid (ex: an input was left blank)
+    </p>
+    
+    
+    <h4>JS Ex1</h4>
+    <p>Lets try building a basic thing in Javascript. Add a button that when pressed will change the
+        a style on the webpage. For now when clicked, have the Javascript change the color of the page from 
+        white to another color.
+    </p>
+    <button id="colorChange" onclick="colorChange()">Change Color</button>
+    <script>
+        function colorChange(){
+            document.getElementById("body").style.backgroundColor = "#B9B4C7";
+        }
+    </script>
+
+    <h4>JS Ex2</h4>
+        <p id="ex2instructions">Viewing the source code of the page, notice that I have put these instructions
+            in a paragraph with an id of ex2instructions.  Repeat what you did in ex1 above, but this time when 
+            the button is clicked, lets only change the style of this paragraph. Ex: change this pargraph color
+            to be red instead of black.
+        </p>
+        <button id="paragraphChange" onclick="paragraphChange()">Change Color</button>
+        <script>
+        function paragraphChange(){
+            document.getElementById("ex2instructions").style.color = "red";
+        }
+        </script>
+
+    <h4>JS Ex3</h4>
+        <p><strong>Squared calculator</strong>. For this exercise lets add the html element that gets input from a user
+        in a single line. Also add a button that is labeled "Calculate". When the button is clicked it should print
+        the number a user entered in a box in the div with an id of 'squared-answer', followed by the answer.
+        </p>
+        <div id="squared-answer">Print your answer in this element. Ex: 3 squared = 9</div>
+        <input id="squareInput" type="text" placeholder="Ex: 3">
+        <button id="calculate" onclick="calculateSquare()">Calculate</button>
+        <p id="entered">Entered: </p>
+        <P id="answer">Squared Answer: </P>
+        <script>
+            function calculateSquare(){
+                var num = document.getElementById("squareInput").value;
+                document.getElementById("entered").textContent = "Entered: " + num;
+                document.getElementById("answer").textContent = "Squared Answer: " + Math.pow(num, 2);
+
+            }
+        </script>
+
+    <h4>JS Ex4</h4>
+        <p>Create a button that when clicked, moves the purple square below (with an id of moveme) 
+            an additional 10 pixels from its current position. Notice that the purple square is initially indented 50pixels
+            so be sure the first time clicked it moves 10 pixels over from its current location, as opposed
+            to the very far left corner. Hint: you may use inline style attributes to initialize the values. Feel free to edit the moveme div as needed.
+            <style>
+                #moveme{
+                    position:relative;
+                    width:20px;
+                    height:20px;
+                    background:purple;
+                    left:50px
+
+                }
+            </style>
+            <div id="moveme" style="left:50px;"></div>
+            <br/>
+            <button onclick="moveBox()">Move the Box</button>
+            <script>
+                var pos;
+                function moveBox(){
+                    var pos = document.getElementById("moveme").style.left;
+                    pos = parseInt(pos) + 10;
+                    console.log(pos);
+                    document.getElementById("moveme").style.left = pos + "px";
+                }
+
+            </script>
+        </p>
+
+        <h3>Forms and JS</h3>
+    <h4>Form Ex1</h4>
+    <p>Create a web form that collects a name, age, and favorite color. For the color lets restrict it to be only a few
+        colors. Use an approriate for element to do so (ex: restrict it so they can only pick red, green, and blue).
+    </p>
+    <p>   
+        Be sure to add a button that allows them to submit. 
+        Have to form use POST. When a form is eventually submitted
+        make sure it goes to a page called process.php in this same directory.  We will work on this page
+        later so you don't need to upload all your work to the webserver yet.
+    </p>
+    <form action="./process.php" method="post">
+        <h4>Name:</h4>
+        <input type="text" name="name" id="name">
+        <h4>Age:</h4>
+        <input type="number" name="age" id="age">
+        <h4>Favorite Color:</h4>
+        <label>Red</label>
+        <input type="radio" name="color" id="red"> <br>
+        <label>Green</label>
+        <input type="radio" name="color" id="green"> <br>
+        <label>Blue</label>
+        <input type="radio" name="color" id="blue">
+        <br><br>
+        <button type="submit" onsubmit="validateForm()">Submit</button>
+    </form>
+
+    <h4>Form Ex2</h4>
+    <p>In the form you created above lets add some javascript validation that Prevents the form from submitting to the process.php if:<br/> 
+            1) the name is left blank.<br/>
+            2) CHALLENGE: make sure age is numeric using javascript. You may use w3schools to look up tips on this.
+            This will give you some practice finding things on w3schools.
+    </p>
+    <script>
+        function validateForm(){
+            if (!empty($_POST['name']) && !empty($_POST['age']) && Number.isInteger($_POST['age'])){
+                console.log("PASS")
+            } else {
+                console.log("FAIL")
+            }
+
+    }
+
+    </script>
+    
+    <h3>PHP</h3>
+    <p>At this point you will need to upload your code to solace so that we can do php and database.</p>
+    <h4>PHP Ex1</h4>
+    <p>Once your form passes JS validation you should end up at process.php.
+        On Process.php print out the values a user has submitted in form.
+    </p>
+    <p>
+        IMPORTANT: Make sure there is actually data being passed in before you attempt to print it.
+        You can verify this by copying your URL to your process.php, and opening a new browser window and pasting
+        the link in the new window. This will simulate someone landing on process.php without actually submitting the form.
+        if this happens it should not attempt to print the results
+
+    </p>
+    <h3>PHP and mySQL</h3>
+    <p>Lets now insert the data into a form. It is sometimes easier to start getting existing DB data and 
+        printing it I suppose, but lets start here.</p>
+    <h4>PHPandMysql Ex1</h4>
+    <p>
+        Sign into adminer and create a database with fields for ID,
+        name, and favorite color. Go ahead and insert a couple sample entries in adminer
+        Be sure to save the SQL adminer generated when inserted somewhere as this can be used in the later
+        steps.
+    </p>
+    <h4>PHPandMysql Ex2</h4>
+
+        
+        Back in your process.php go ahead and INSERT the data a user has inputted into the database. 
+    </p>
+    <p>
+        Note 2: There
+        are a lot of steps involved here. I am not listing them all here. You may need to look back at previous
+        demos and w3schools for this. Even if you can find the answers in old demos i'd suggest trying to look things up in w3schools as that will help during the practical. 
+    </p>
+
+    <p>
+        Note 1: This is probably a bigger exercise than the other ones. We probably won't get to this in class review, but i'd strongly
+        suggest you do this before the exam. I will be rescheduling a final chance to ask me questions on Monday
+        December 11th at I believe 7:00. Details coming soon.
+    </p>
+        
+    <h4>PHPandMysql Ex2</h4>
+    <p>Create a new php page called shownames.php. Using php and mysql print all of the previously submitted names, and their favorite color. Try to make 
+        it asthetically pleasing.
+    </p>
+    <p>Hint: once again a lot to do here, look back at previous examples and w3schools for help, or come to the final zoom
+        review I will do Monday the 11th. Some tips: reuse your dbconn.php to save time, use adminer to generate the select database
+        query you will use.
+    </p>
+    <p>
+        Challenge: display the comments in order of last submitted on top. We didn't save a date submitted, but this can still be done.
+        Hint: adminer can help us generate this query
+    </p>
+
+    <h4>Other things to practice</h4>
+    <ul>
+        <li>PHP includes. The practical won't be massive so we won't see many benefits from making it modular, but
+            you want to be sure you understand how php include() works. This is good to know for our dbcon.php but also
+            in case you are asked to include anything from external files to display (like a nav bar for example).
+        </li>
+        <li>
+            Centering a container in a website. We can't just use text-align center, how do we center a box in a website?
+        </li>
+        <li>
+            SetTimeout / SetInterval in JS. I normally don't include this on practicals, but it is fair game, especially given that
+            I just created this great review for the class that if we do will prepare us very well for what to expect.
+        </li>
+    </ul>
+
+
+</body>
+</html>

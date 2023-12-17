@@ -1,3 +1,4 @@
+package Final;
 import java.util.LinkedList;
 
 
@@ -9,12 +10,10 @@ class Edge {
    char startNodeName;
 
 
-   Edge(char startNodeName, char endNodeName, int weight, int startNode, int endNode){
+   Edge(int weight, int startNode, int endNode){
       this.weight = weight;
       this.endNode = endNode;
-      this.endNodeName = endNodeName;
       this.startNode = startNode;
-      this.startNodeName = startNodeName;
    }
 
    public int getEdgeWeight(){
@@ -35,38 +34,31 @@ class Edge {
    }
 
    public String toString(){
-      return endNodeName + ": " + weight;
+      return Integer.toString(endNode);
    }
 }
 
 class WeightedGraph {
    private int N; // number of nodes in the graph
-   private char[] names; // names of each node
    private LinkedList<Edge> adj[]; // adjacency list for each node
    
-   WeightedGraph(int numNodes, char[] nodeNames) {
+   WeightedGraph(int numNodes) {
       N = numNodes;
       adj = new LinkedList[N]; // create an adjacency list for each node
-      names = new char[N];
       
       for(int i = 0; i < N; i++) {
          adj[i] = new LinkedList<>(); // create empty list of edges
-         names[i] = nodeNames[i]; // name the current node
       }
    }
    
    public void addEdge(int startNode, int endNode, int weight) {
-      Edge edge = new Edge(names[startNode], names[endNode], weight, startNode, endNode);
+      Edge edge = new Edge(weight, startNode, endNode);
 
       adj[startNode].add(edge);
    }
    
    public int getNumNodes() {
       return N;
-   }
-   
-   public char[] getNodeNames() {
-      return names;
    }
    
    public LinkedList<Edge>[] getAdjList() {
@@ -77,7 +69,7 @@ class WeightedGraph {
       String output = new String();
       
       for (int i = 0; i<adj.length; i++){
-         output += names[i] + ": " + adj[i] + "\n";
+         output += i + ": " + adj[i] + "\n";
 
       }
       
@@ -123,7 +115,7 @@ public class Dijkstra {
          // mark the minimum distance node as visited
          visited[minIndex] = true; 
 
-         System.out.println("Visiting node " + graph.getNodeNames()[minIndex]);  
+         System.out.println("Visiting node " + minIndex);  
          int name = minIndex;
 
          for(int i = 0; i < adj[minIndex].size(); i++) {
@@ -179,43 +171,4 @@ public class Dijkstra {
       System.out.print(nodes[current] + " ");
    }
   
-   public static void main(String[] args) 
-   { 
-      char[] nodeNames = {'A', 'B', 'C', 'D', 'E', 'F', 'G'}; // Nodes 0, 1, 2, 3, 4
-      WeightedGraph graph = new WeightedGraph(nodeNames.length, nodeNames);
-
-      graph.addEdge(6, 2, 5); // G->C
-      graph.addEdge(2, 6, 5); // G<-C
-
-      graph.addEdge(2, 1, 1); // C->B
-      graph.addEdge(1, 2, 1); // C<-B
-
-      graph.addEdge(2, 3, 4); // C->D
-      graph.addEdge(3, 2, 4); // C<-D
-
-      graph.addEdge(1, 0, 1); // B->A
-      graph.addEdge(0, 1, 1); // B<-A
-
-      graph.addEdge(3, 0, 1); // D->A
-      graph.addEdge(0, 3, 1); // D<-A
-
-      graph.addEdge(3, 5, 6); // D->F
-      graph.addEdge(5, 3, 6); // D<-F
-
-      graph.addEdge(3, 4, 4); // D->E
-      graph.addEdge(4, 3, 4); // D<-E
-
-      graph.addEdge(5, 4, 3); // F->E
-      graph.addEdge(4, 5, 3); // F<-E
-      graph.addEdge(4, 3, 4); // D<-E
-
-      System.out.println(graph.toString());
-
-      int distances[][] = dijkstra(graph, 6);
-      
-      printDistances(distances, nodeNames, 6);
-      
-      //Print Paths is called in the print distances method :)
-
-   } 
 }
