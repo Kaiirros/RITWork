@@ -1,4 +1,6 @@
 package Final;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 
@@ -41,6 +43,8 @@ class Edge {
 class WeightedGraph {
    private int N; // number of nodes in the graph
    private LinkedList<Edge> adj[]; // adjacency list for each node
+   static float friends;
+   static HashMap<Integer, Integer> friendCountMap;
    
    WeightedGraph(int numNodes) {
       N = numNodes;
@@ -75,12 +79,25 @@ class WeightedGraph {
       
       return output;
    }
+
+   public float friendAverage(){
+
+      for (int i = 0; i<adj.length; i++){
+         friends += adj[i].size();
+
+         friendCountMap.put(adj[i].size(), i);
+      }
+
+
+      return friends;
+   }
+
 }
 
 
 
 public class Dijkstra { 
-   
+
    static int[][] dijkstra(WeightedGraph graph, int source) { 
       int N = graph.getNumNodes();
       LinkedList<Edge> adj[] = graph.getAdjList();
@@ -115,7 +132,7 @@ public class Dijkstra {
          // mark the minimum distance node as visited
          visited[minIndex] = true; 
 
-         System.out.println("Visiting node " + minIndex);  
+         //System.out.println("Visiting node " + minIndex);  
          int name = minIndex;
 
          for(int i = 0; i < adj[minIndex].size(); i++) {
@@ -142,33 +159,33 @@ public class Dijkstra {
       return twoDArray;
    } 
    
-   static void printDistances(int distances[][], char[] nodes, int source) { 
-      int N = nodes.length;
+   static void printDistances(int distances[][], int nodes, int source) { 
+      int N = nodes;
       System.out.println("Node \t   Distance \t Previous Node"); 
       for(int i = 0; i < N; i++){
 
-         System.out.println(nodes[i] + "\t\t" + distances[0][i] + "\t\t" + distances[1][i]);
+         System.out.println(i + "\t\t" + distances[0][i] + "\t\t" + distances[1][i]);
 
       }
 
       for(int i = 0; i < distances[1].length; i++){
 
          if( i != source){
-            System.out.print("\n" + "Shortest path from " + nodes[source] + " to " + nodes[i] + "\t");
+            System.out.print("\n" + "Shortest path from " + source + " to " + i + "\t");
             printPaths(i, distances[1], nodes, source);            
          }
       }
 
    }
 
-   static void printPaths(int current, int distances[], char[] nodes, int source){
+   static void printPaths(int current, int distances[], int nodes, int source){
       if (current == -1){
          return;
       }
       
       printPaths(distances[current], distances, nodes, source);
 
-      System.out.print(nodes[current] + " ");
+      System.out.print(current + " ");
    }
   
 }
