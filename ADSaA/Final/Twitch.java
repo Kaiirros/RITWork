@@ -2,14 +2,13 @@ package Final;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Twitch {
 
-    static HashMap<Integer, Integer> hashMap;
+    static TreeMap<Integer, Integer> hashMap;
     static WeightedGraph graph;
     static int users;
 
@@ -30,34 +29,43 @@ public class Twitch {
 
         br.close();
 
-        System.out.println(graph.toString());
-    
-
     }
 
     public static void main(String[] args) throws IOException {
         Twitch twitch = new Twitch();
         DecimalFormat df = new DecimalFormat("#.00");
         float degrees = 0;
+        float degrees2 = 0;
 
         twitch.readFile("ADSaA\\Final\\twitch_friendships.txt");
 
-        int distances[][] = Dijkstra.dijkstra(graph, 0);
- 
-        for (int i = 0; i < distances[0].length; i++){
-            degrees += distances[0][i];
+
+        for (int i = 0; i < Twitch.users; i++){
+            int distances[][] = Dijkstra.dijkstra(graph, i);
+
+            for (int j = 0; j < Twitch.users; j++){
+                degrees2 += distances[0][j];                
+            }
+            degrees = degrees2/Twitch.users;
+
         }
 
-        //degrees = (degrees/Twitch.users);
-
-        System.out.println("Average Twitch User Friend Count = " + df.format(Twitch.graph.friendAverage()/Twitch.users) + " friends");
         System.out.println("Average Twitch User Separation = " + df.format(degrees/Twitch.users) + " degrees");
+        System.out.println("Average Twitch User Friend Count = " + df.format(Twitch.graph.friendAverage()/Twitch.users) + " friends");
 
-        HashMap<Integer, Integer> friendCountMap = WeightedGraph.friendCountMap;
-        for (Map.Entry element : friendCountMap.entrySet()){
-            System.out.println("User: " + element.getValue() + ", Friend Count: " + element.getKey());
+        Map<Integer, Integer> friendCountMap = WeightedGraph.friendCountMap.descendingMap();
+
+        int i = 0;
+        System.out.println(" \nTop 10 Twitch user friend counts");
+        for (Map.Entry<Integer, Integer> entry : friendCountMap.entrySet()) {
+            if (i >= 10){
+                break;
+            }
+            int key = entry.getKey();
+            int value = entry.getValue();
+            System.out.println("User: " + value + ", Friend Count: " +key);
+            i++;
         }
     }
-
 
 }

@@ -1,6 +1,5 @@
 package Final;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.LinkedList;
 
 
@@ -42,9 +41,9 @@ class Edge {
 
 class WeightedGraph {
    private int N; // number of nodes in the graph
-   private LinkedList<Edge> adj[]; // adjacency list for each node
+   static LinkedList<Edge> adj[]; // adjacency list for each node
    static float friends;
-   static HashMap<Integer, Integer> friendCountMap;
+   static TreeMap<Integer, Integer> friendCountMap = new TreeMap<>();
    
    WeightedGraph(int numNodes) {
       N = numNodes;
