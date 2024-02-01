@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+</head>
+<style>
+
+.message-flex{
+    display: flex;
+    margin:3rem;
+    gap: 2rem;
+    height: 40rem;
+}
+
+ .message-form {
+    background: rgb(255,221,174);
+    width: 30%;
+    padding: 2rem;
+    border-radius: 2rem;
+ }
+ .message-list-holder{
+    display: flex;
+    flex-direction: column;
+
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 1rem;
+    height: 50rem;
+ }
+ .messages-section{
+    flex-direction: column;
+    width: 70%;
+ }
+
+ .message-list{
+    display: flex;
+    background: rgb(255,221,174);
+    background: linear-gradient(90deg, rgba(255,221,174,1) 0%, rgba(255,255,255,1) 100%);;
+    height: max-content;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 2rem;
+    padding: 1rem;
+ }
+
+ .message-header{
+    padding: 1rem;
+    border-radius: 3rem;
+    gap:2rem;
+    background-color: white;
+    width: fit-content;
+ }
+ 
+ .message-content{
+    background-color: white;
+    font-size: 1.25rem;
+    padding: 1rem;
+    border-radius: 2rem;
+ }
+
+ .small-input{
+    height: 2rem;
+ }
+
+ .search {
+    flex-direction: row;
+    border-radius: 2rem;
+    height: 2rem;
+    direction: ltr;
+ }
+</style>
+<body>
+
+    <div class="message-flex">
+        <div class="message-form">
+            <form class="message-post">
+                <h1>Post a Message</h1>
+                <hr>
+                <form method="get" action="index.php">
+                    <h3>Name:</h3> 
+                    <input class="small-input" type="text" name="name">
+                    <h3>Title:</h3> 
+                    <input class="small-input" type="text" name="title">
+                    <br><br>
+                    <h3>Message:</h3> 
+                    <textarea id="message" name="message" cols="50" rows="10" placeholder="Enter message..."></textarea>
+                    <br>
+                    <br>
+            </form>
+            <hr>
+        </div>
+        <div class="messages-section">
+            <div class="search">
+                <input class="search" type="search" id="search">
+                <button>Search</button>
+            </div>
+            <div class="message-list-holder"> 
+                <div class="message-list">
+                    <h1 class="message-header">My Favorite Restaurant in Germany</h1>
+                    <h1 class="message-header">by John Doe</h1>
+                    <p class="message-content"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae aut ut qui in quam laboriosam numquam, ipsam corrupti quia a. Incidunt iure libero qui et nostrum in impedit placeat quam! Repudiandae aut ut qui in quam laboriosam numquam, ipsam corrupti quia a. Incidunt iure libero qui et nostrum in impedit placeat quam!</p>
+                </div>
+                <br>
+                <div class="message-list">
+                    <h1 class="message-header">My Favorite Restaurant in Germany</h1>
+                    <h1 class="message-header">by John Doe</h1>
+                    <p class="message-content"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae aut ut qui in quam laboriosam numquam, ipsam corrupti quia a. Incidunt iure libero qui et nostrum in impedit placeat quam! Repudiandae aut ut qui in quam laboriosam numquam, ipsam corrupti quia a. Incidunt iure libero qui et nostrum in impedit placeat quam!</p>
+                </div>
+                <br>
+                <div class="message-list">
+                    <h1 class="message-header">My Favorite Restaurant in Germany</h1>
+                    <h1 class="message-header">by John Doe</h1>
+                    <p class="message-content"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae aut ut qui in quam laboriosam numquam, ipsam corrupti quia a. Incidunt iure libero qui et nostrum in impedit placeat quam! Repudiandae aut ut qui in quam laboriosam numquam, ipsam corrupti quia a. Incidunt iure libero qui et nostrum in impedit placeat quam!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

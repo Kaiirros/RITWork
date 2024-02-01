@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<script>
+    var moving;
+
+    function slideshow(stringId){
+
+        currentpos = document.getElementById(stringId).style.left;
+        width = document.getElementById(stringId).offsetWidth;
+        console.log(width)
+        if (innerWidth > parseInt(currentpos)){
+            newpos = parseInt(currentpos)+1 + "px";
+
+            document.getElementById(stringId).style.left = newpos;
+            moving = setTimeout(slideshow,2, stringId);            
+        } else {
+            document.getElementById(stringId).style.left = "-" + parseInt(width + 150) + "px";
+            console.log("RESET")
+            moving = setTimeout(slideshow,2, stringId); 
+        }
+
+    }
+</script>
+<body onclick="slideshow('slideshow')">
+    <span class="slideshow" id="slideshow" style="left:0px; opacity: 1;">
+        <img class="slideshow-img" src = "ISTE240\assets\photos\frankfurtSkyline.jpg">
+        <img class="slideshow-img" src = "ISTE240\assets\photos\brandenburg.JPG">
+        <img class="slideshow-img" src = "ISTE240\assets\photos\frankfurtSquare.jpg">
+        <img class="slideshow-img" src = "ISTE240\assets\photos\NeuschwansteinLake.jpg">
+        <img class="slideshow-img" src = "ISTE240\assets\photos\HamburgCap.jpg">
+    </span>
+</body>
+</html>

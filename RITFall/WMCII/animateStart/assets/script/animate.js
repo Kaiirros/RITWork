@@ -24,7 +24,7 @@ stopMoving();
 }
 
 /**
- * Moves object right
+ * Moves object left
  @param {String} stringId
  @returns {void}
  */
