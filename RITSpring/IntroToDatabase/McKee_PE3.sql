@@ -1,4 +1,6 @@
 
+-- Daniel McKee
+
 -- Task 1
 SELECT title AS Title, length AS Length
 FROM film
@@ -25,7 +27,7 @@ FROM film
 WHERE releASeYear > 2012 AND length > 160;
 
 --Task 6
-SELECT title AS Title, replacementCost AS Replacement Cost, rating AS Rating
+SELECT title AS 'Title', replacementCost AS "Replacement Cost", rating AS Rating
 FROM film
 WHERE replacementCost = 19.99 AND title NOT LIKE '_a%';
 
@@ -35,7 +37,7 @@ FROM film
 WHERE description IS NULL;
 
 --Task 8
-SELECT replacementCost
+SELECT replacementCost AS "Replacement Cost"
 FROM film
 WHERE title = 'Town Ark';
 
@@ -45,7 +47,7 @@ FROM film
 WHERE (rating = 'G' AND releaseYear = 2006) OR (rating = 'PG' AND releaseYear = 2010);
 
 --Task 10
-SELECT filmID, title, releaseYear, length, replacementCost, rating
+SELECT filmID AS "Film ID", title AS Title, releaseYear AS "Release Year", length as Length, replacementCost AS "Replacement Cost", rating AS Rating
 FROM film
 WHERE releaseYear != 2006 OR releaseYear != 2010;
 
