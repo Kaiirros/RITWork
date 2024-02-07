@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let ret = true;
+
+        function val(){
+            if(document.getElementById('fn').value == ''){
+                document.getElementById('fn').style.backgroundColor = "pink";
+                ret = false;
+            }
+            if(document.getElementById('ln').value == ''){
+                document.getElementById('ln').style.backgroundColor = "pink";
+                ret = false;
+            }
+            return false;
+        }
+
+    </script>
+</head>
+<body>
+    <form action="page.php" method="get" onsubmit="return val()">
+        first: <input type="text" name="fname" id="fn"> <br>
+        last: <input type="text" name="lname" id="ln"> <br>
+        <input type="submit" value="go">
+    </form>
+    
+</body>
+</html>
