@@ -48,3 +48,17 @@ WHERE (rating = 'G' AND releaseYear = 2006) OR (rating = 'PG' AND releaseYear = 
 SELECT filmID, title, releaseYear, length, replacementCost, rating
 FROM film
 WHERE releaseYear != 2006 OR releaseYear != 2010;
+
+--Task 11
+UPDATE film
+SET replacementCost = 5.59
+WHERE releaseYear = 2006;
+
+--Task 12
+UPDATE film
+SET replacementCost = 10.00
+WHERE releaseYear = 2006;
+
+--Task 13
+DELETE FROM film
+WHERE length < 60 AND rating = 'PG';
