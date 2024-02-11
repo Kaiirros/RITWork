@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cards</title>
+</head>
+<style>
+    .desktopCard{
+        display: flex;
+        flex-direction: column;
+        background-color: #D8F6FF;
+        box-shadow: #6f6f6f 3px 3px 8px;
+        border-radius: 2rem;
+        width: min-content;
+        font-family:'Courier New', Courier, monospace;
+        margin: 1rem;
+        transition: .25s;
+
+    }
+
+    .desktopCard:hover{
+        transform: scale(1.05);
+    }
+    .cardDesktopPhoto{
+        width: 20rem;
+        border-radius: 2rem;
+        padding: .5rem;
+        object-fit: cover;
+    }
+    .innerDesktopCard{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+    .learnMore{
+        background-color: #75CDF3;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color:white;
+        border: none;
+        box-shadow: #6f6f6f 3px 3px;
+        width: fit-content;
+        padding: .75rem;
+        border-radius: 2rem;
+        align-self: center;
+    }
+    .learnMore:hover{
+        cursor:pointer;
+        background-color: white;
+        box-shadow: none;
+        color:black;
+    }
+
+    .cardColumnContainer{
+        display: flex;
+    }
+    .column1.column2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: 800px) {
+        .desktopCard{
+            flex-direction: row;
+            margin: auto;
+            margin-top: 1rem;
+        }
+        .cardColumnContainer{
+            flex-direction: column;
+        }
+    }
+
+</style>
+<body>
+    <div class="cardColumnContainer">
+        <div class="column1">
+            <div class="desktopCard">
+                <img 
+                srcset="brandenburgQuarter.JPG 1x, brandenburgHalf.JPG 2x"
+                src="brandenburgHalf.JPG"
+                class="cardDesktopPhoto">
+
+                <div class="innerDesktopCard">
+                    <h1>Keep Gambling.</h1>
+                    <p>99% of gamblers give up before they win big!</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+            <div class="desktopCard">
+                <img src="brandenburgHalf.JPG" class="cardDesktopPhoto">
+                <div class="innerDesktopCard">
+                    <h1>Keep Gambling.</h1>
+                    <p>99% of gamblers give up before they win big!</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="column2">
+            <div class="desktopCard">
+                <img src="brandenburgHalf.JPG" class="cardDesktopPhoto">
+                <div class="innerDesktopCard">
+                    <h1>Keep Gambling.</h1>
+                    <p>99% of gamblers give up before they win big!</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+            <div class="desktopCard">
+                <img src="brandenburgHalf.JPG" class="cardDesktopPhoto">
+                <div class="innerDesktopCard">
+                    <h1>Keep Gambling.</h1>
+                    <p>99% of gamblers give up before they win big!</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
