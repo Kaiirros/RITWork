@@ -55,6 +55,7 @@
 
     .cardColumnContainer{
         display: flex;
+        justify-content: center;
     }
     .column1.column2{
         display: flex;
@@ -78,9 +79,11 @@
         <div class="column1">
             <div class="desktopCard">
                 <img 
-                srcset="brandenburgQuarter.JPG 1x, brandenburgHalf.JPG 2x"
-                src="brandenburgHalf.JPG"
-                class="cardDesktopPhoto">
+                    srcset="brandenburg360w.JPG 360w, brandenburg720w.JPG 720w, brandenburg1440w.JPG 1440w"
+                    sizes="(max-width: 800px) 360px, 800px, 1440px"
+                    src="brandenburg720w.JPG"
+                    alt="Photo of the Brandenburg Gate in Berlin, Germany"
+                    class="cardDesktopPhoto">
 
                 <div class="innerDesktopCard">
                     <h1>Keep Gambling.</h1>
@@ -89,7 +92,13 @@
                 </div>
             </div>
             <div class="desktopCard">
-                <img src="brandenburgHalf.JPG" class="cardDesktopPhoto">
+                <img 
+                srcset="brandenburg360w.JPG 360w, brandenburg720w.JPG 720w, brandenburg1440w.JPG 1440w"
+                sizes="(max-width: 800px) 360px, 800px, 1440px"
+                src="brandenburg720w.JPG"
+                alt="Photo of the Brandenburg Gate in Berlin, Germany"
+                class="cardDesktopPhoto">
+
                 <div class="innerDesktopCard">
                     <h1>Keep Gambling.</h1>
                     <p>99% of gamblers give up before they win big!</p>
@@ -100,7 +109,12 @@
 
         <div class="column2">
             <div class="desktopCard">
-                <img src="brandenburgHalf.JPG" class="cardDesktopPhoto">
+            <picture>
+                <source media="(min-width: 800px)" srcset="hamburg.jpg">
+                <source media="(max-width: 800px)" srcset="hamburgCrop1.jpg">
+                <source media="(max-width: 600px)" srcset="hamburgCrop2.jpg">
+                <img src="hamburg.jpg" alt="City of Hamburg" class="cardDesktopPhoto">
+            </picture>
                 <div class="innerDesktopCard">
                     <h1>Keep Gambling.</h1>
                     <p>99% of gamblers give up before they win big!</p>
@@ -108,7 +122,13 @@
                 </div>
             </div>
             <div class="desktopCard">
-                <img src="brandenburgHalf.JPG" class="cardDesktopPhoto">
+                <img 
+                srcset="brandenburg360w.JPG 360w, brandenburg720w.JPG 720w, brandenburg1440w.JPG 1440w"
+                sizes="(max-width: 800px) 360px, 800px, 1440px"
+                src="brandenburg720w.JPG"
+                alt="Photo of the Brandenburg Gate in Berlin, Germany"
+                class="cardDesktopPhoto">
+
                 <div class="innerDesktopCard">
                     <h1>Keep Gambling.</h1>
                     <p>99% of gamblers give up before they win big!</p>
