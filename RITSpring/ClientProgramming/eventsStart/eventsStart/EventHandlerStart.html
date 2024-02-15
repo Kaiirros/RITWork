@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Events</title>
+	<script type="text/javascript">
+
+		function simpleFunction(){
+			console.log('simpleFunction called and the value of this is: ', this)
+		}
+
+		function takesArg(arg){
+			console.log(arg)
+		}
+
+		function noArg(){
+			console.log('from noArg')
+
+		}
+	//For Image 1 --------------------------------------------------------------------
+	//All as HTML attributes
+	// -since the call to 'this' is within the attribute, it refers to the element.
+	
+	
+	//For Image 2 --------------------------------------------------------------------
+	//assign an event to Image 2
+		function init(){
+			document.getElementsByTagName('img')[1].onclick = simpleFunction;
+			document.getElementsByTagName('img')[1].onmouseover = function(){ takesArg("message comes from js property event") };
+
+		}
+
+	  
+    //For Image 3 --------------------------------------------------------------------
+	//attach an event to Image 3
+
+
+	</script>
+</head>
+<body onload="init()">
+
+  <h1>Image 1 (html attribute):</h1><img src="pic.jpg" onclick="simpleFunction();"/>
+  
+  <h1>Image 2 (JavaScript property):</h1><img src="pic.jpg"/>
+  
+  <h1>Image 3 (JavaScript listener):</h1><img src="pic.jpg"/>
+
+</body>
+</html>

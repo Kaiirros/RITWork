@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<script>
+			function start(){
+				let butEle = document.createElement('button');
+				butEle.appendChild(document.createTextNode("press me"));
+
+				butEle.setAttribute('onclick', 'test()'); //output is window
+
+				butEle.onmouseleave = test;
+				document.getElementsByTagName('body')[0].appendChild(butEle);
+
+			}
+
+			function test(){
+				console.log(this)
+				//with setattribute gives the global obj (window)
+				//with js attribute event, gives a reference back to the object interacted with
+			}
+	
+		</script>
+	</head>
+	<body onload="start()">
+
+	</body>
+</html>
