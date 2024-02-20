@@ -25,8 +25,14 @@
 	//For Image 2 --------------------------------------------------------------------
 	//assign an event to Image 2
 		function init(){
+			//doing it this way gives us 'this'
 			document.getElementsByTagName('img')[1].onclick = simpleFunction;
-			document.getElementsByTagName('img')[1].onmouseover = function(){ takesArg("message comes from js property event") };
+
+			//doing it this way loses 'this'
+			document.getElementsByTagName('img')[1].onmouseover = function(){ 
+				takesArg("message comes from js property event") 
+				simpleFunction(); //"this" does not reference the DOM object!
+			};
 
 		}
 
@@ -34,10 +40,20 @@
     //For Image 3 --------------------------------------------------------------------
 	//attach an event to Image 3
 
+	function init2(){
+		let dom = document.images[2];
+		dom.addEventListener('click', simpleFunction, {once:true});
+		dom.addEventListener('click', noArg, false);
+		dom.addEventListener('click', function(){
+			takesArg("this comes from addEventListener with an arg");
+		}, true);
+
+	}
+
 
 	</script>
 </head>
-<body onload="init()">
+<body onload="init();init2();">
 
   <h1>Image 1 (html attribute):</h1><img src="pic.jpg" onclick="simpleFunction();"/>
   
