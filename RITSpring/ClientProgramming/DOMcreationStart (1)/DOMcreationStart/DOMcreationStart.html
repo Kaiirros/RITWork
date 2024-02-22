@@ -8,12 +8,28 @@
 	//createElement, createTextNode, setAttribute, appendChild, replaceChild, removeChild, cloneNode
 	//childNodes[], firstChild, nodeType, nodeName, nodeValue, 
 	//getElementById, getElementsByTagName, getElementsByName, getElementsByClassName
+
+	var data = {
+
+		init: ['You find yourself in a dimly lit cavern, alone and lacking any material possessions besides the clothes on your back. There are two passage ways in your view, what do you do?',
+		'Explore the left passage way...','Explore the right passage way...'],
+
+		left: ['Entering the left passage way, there are no noticeable sounds besides the gentle dripping of a singular water droplet onto an eroded rock. Further ahead, you can see a light source...',
+		'Search light source...','Turn back...'],
+
+		right: ['Entering the right passage way, there is a slight breeze accompanying the pitch black cave. Moving further into the darkness, you brush up against multiple strands of what feels like hair...',
+		'Continue forwards without question...','Investigate what feels like "strands of hair"...','Turn back...'],
+		
+
+
+	}
 	
 	function createText(){
-		let hEle = document.createElement('h1');
+		let hEle = document.createElement('div');
 		//<h1>
 		hEle.setAttribute('style','color:teal');
 		//<h1 style="color:teal">
+			console.log(left)
 		hEle.appendChild(document.createTextNode("340 is awesome"));
 
 		document.getElementsByTagName('body')[0].appendChild(hEle);
