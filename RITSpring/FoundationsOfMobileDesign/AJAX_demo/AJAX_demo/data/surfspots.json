@@ -1,0 +1,104 @@
+[
+    {   
+        "id": 0,
+        "spot": "Jalama",
+        "wavehold": 10,
+        "swelldirection": "Northwest to South",
+        "offshore": "Southwest",
+        "tide": "All",
+        "photo": "images/Jalama.jpg"
+    },
+
+    {   
+        "id": 1,
+        "spot": "El Cap",
+        "wavehold": 12,
+        "swelldirection": "Northwest to South",
+        "offshore": "South",
+        "tide": "Not High",
+        "photo": "images/elcap.jpg"
+    },
+    
+    {   
+        "id": 2,
+        "spot": "Naples",
+        "wavehold": 12,
+        "swelldirection": "Northwest to West",
+        "offshore": "South",
+        "tide": "Mid Tide",
+        "photo": "images/naples-north.jpg"
+    },
+
+    {   
+        "id": 3,
+        "spot": "Leadbetter",
+        "wavehold": 10,
+        "swelldirection": "Northwest to South",
+        "offshore": "South",
+        "tide": "All",
+        "photo": "images/leadbetter.jpg"
+    },
+
+    {   
+        "id": 4,
+        "spot": "Sandspit",
+        "wavehold": 8,
+        "swelldirection": "Northwest to South",
+        "offshore": "Southwest",
+        "tide": "Not High",
+        "photo": "images/sandspit.jpeg"
+    },
+
+    {   
+        "id": 5,
+        "spot": "Hammonds",
+        "wavehold": 12,
+        "swelldirection": "West to South",
+        "offshore": "Southwest",
+        "tide": "All",
+        "photo": "images/hammonds.jpeg"
+    },
+
+    {   
+        "id": 6,
+        "spot": "Rincon",
+        "wavehold": 12,
+        "swelldirection": "Northwest to South",
+        "offshore": "West",
+        "tide": "All",
+        "photo": "images/rincon.jpg"
+    },
+
+    {   
+        "id": 7,
+        "spot": "Mussel Shoals",
+        "wavehold": 12,
+        "swelldirection": "Northwest to South",
+        "offshore": "Southwest",
+        "tide": "Not High",
+        "photo": "images/little_rincon.jpg"
+    },
+
+    {   
+        "id": 8,
+        "spot": "Pitas",
+        "wavehold": 12,
+        "swelldirection": "Northwest to South",
+        "offshore": "Southwest",
+        "tide": "All",
+        "photo": "images/pitas.jpeg"
+    },
+
+    {   
+        "id": 9,
+        "spot": "C Street",
+        "wavehold": 12,
+        "swelldirection": "Northwest to South",
+        "offshore": "Southwest",
+        "tide": "All",
+        "photo": "images/cstreet.jpg"
+    }
+
+]
+
+
