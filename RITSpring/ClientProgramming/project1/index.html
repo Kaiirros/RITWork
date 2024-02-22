@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+    var data = {
+
+    init: ['You find yourself in a dimly lit cavern, alone and lacking any material possessions besides the clothes on your back. There are two passage ways in your view, what do you do?',
+    'Explore the left passage way...','Explore the right passage way...'],
+
+    left: ['Entering the left passage way, there are no noticeable sounds besides the gentle dripping of a singular water droplet onto an eroded rock. Further ahead, you can see a light source...',
+    'Search light source...','Turn back...'],
+
+    right: ['Entering the right passage way, there is a slight breeze accompanying the pitch black cave. Moving further into the darkness, you brush up against multiple strands of what feels like hair...',
+    'Continue forwards without question...','Investigate what feels like "strands of hair"...','Turn back...'],
+
+
+    }
+
+
+    function newOptionSelected(option){
+        console.log("new option logged")
+
+    }
+    /*
+        build next,
+            build div
+            give div a class
+            build an h1
+            put text in h1
+            put h1 in div
+    */ 
+   function createOption(){
+    let divContainer = document.createElement('div');
+    divContainer.setAttribute('class', 'container');
+    let hEle = document.createElement('h3');
+    hEle.setAttribute('class','question');
+    let selection = document.createElement('select');
+    selection.setAttribute('class','select')
+
+
+    for (let i=1; i < data.init.length; i++){
+        let option = new Option(data.init[i])
+        option.setAttribute('class','option')
+        selection.add(new Option(data.init[i]));
+    }
+
+    selection.onselect = newOptionSelected;
+    
+    divContainer.appendChild(hEle);
+    divContainer.appendChild(selection);
+    hEle.appendChild(document.createTextNode(data.init[0]));
+    
+    document.getElementsByTagName('body')[0].appendChild(divContainer);
+    /*
+            build a select
+            give select attributes needed! (on change needed)
+            loop on how many options listed (every option after the question)
+                build option
+                give options attributes
+                put texts into options
+                append options to select 
+            loop
+            put select on div
+            put div on page
+    */
+    }
+
+    </script>
+</head>
+<style>
+    .container{
+        background-color: gray;
+        width: 30rem;
+        padding: 2rem;
+    }
+    .question{
+        color:black;
+    }
+    .select{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+
+</style>
+<body>  
+    
+    <div id="buttons" style="position:absolute; top:8px; left:200px">
+        <button onclick="createOption();">Create It!</button>
+      </div>
+    
+
+    
+</body>
+</html>

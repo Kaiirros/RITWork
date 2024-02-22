@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cards</title>
+    <link rel="stylesheet" href="responsiveCards.css">
+</head>
+<body>
+    <div class="cardColumnContainer">
+        <div class="column1">
+            <div class="desktopCard">
+                <img 
+                    srcset="brandenburg360w.JPG 360w, brandenburg720w.JPG 720w, brandenburg1440w.JPG 1440w"
+                    sizes="(max-width: 800px) 800px,
+                            (max-width: 720px) 720px,
+                            (max-width: 360px) 360px"
+                    src="brandenburg720w.JPG"
+                    alt="Photo of the Brandenburg Gate in Berlin, Germany"
+                    class="cardDesktopPhoto">
+
+                <div class="innerDesktopCard">
+                    <h1>Berlin, Germany</h1>
+                    <p>The capital of Germany, once divided and now united, is an incredible city full of history!</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+            <div class="desktopCard">
+                <img 
+                srcset="brandenburg360w.JPG 360w, brandenburg720w.JPG 720w, brandenburg1440w.JPG 1440w"
+                sizes="(max-width: 800px) 800px,
+                (max-width: 720px) 720px,
+                (max-width: 360px) 360px"
+                src="brandenburg720w.JPG"
+                alt="Photo of the Brandenburg Gate in Berlin, Germany"
+                class="cardDesktopPhoto">
+
+                <div class="innerDesktopCard">
+                    <h1>Berlin, Germany</h1>
+                    <p>The capital of Germany, once divided and now united, is an incredible city full of history!</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="column2">
+            <div class="desktopCard">
+            <picture>
+                <source media="(min-width: 800px)" srcset="hamburg.jpg">
+                <source media="(min-width: 800px)" srcset="hamburgCrop1.jpg">
+                <source media="(min-width: 600px)" srcset="hamburgCrop2.jpg">
+                <img src="hamburg.jpg" alt="City of Hamburg" class="cardDesktopPhoto">
+            </picture>
+                <div class="innerDesktopCard">
+                    <h1>Hamburg, Germany</h1>
+                    <p>Known for the Hamburg Harbor and some of the Beatle's escapades, Hamburg was once a city musical artists flocked to.</p>
+                    <button class="learnMore">Learn More</button>
+                </div>
+            </div>
+            <div class="desktopCard">
+                <picture>
+                    <source media="(min-width: 800px)" srcset="hamburg.jpg">
+                    <source media="(min-width: 800px)" srcset="hamburgCrop1.jpg">
+                    <source media="(min-width: 600px)" srcset="hamburgCrop2.jpg">
+                    <img src="hamburg.jpg" alt="City of Hamburg" class="cardDesktopPhoto">
+                </picture>
+                    <div class="innerDesktopCard">
+                        <h1>Hamburg, Germany</h1>
+                        <p>Known for the Hamburg Harbor and some of the Beatle's escapades, Hamburg was once a city musical artists flocked to.</p>
+                        <button class="learnMore">Learn More</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <h1>Sketches</h1>
+    <img src="image0.jpeg" width="600" style="margin: auto;" alt="sketches">
+    <h1>Wireframes</h1>
+    <img src="Capture.PNG" width="600" style="margin: auto;" alt="Wireframe">
+    
+</body>
+</html>

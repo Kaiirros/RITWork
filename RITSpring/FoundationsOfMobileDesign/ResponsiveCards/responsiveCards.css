@@ -1,0 +1,82 @@
+.desktopCard{
+    display: flex;
+    flex-direction: column;
+    background-color: #D8F6FF;
+    box-shadow: #6f6f6f 3px 3px 8px;
+    border-radius: 2rem;
+    width: min-content;
+    font-family:'Courier New', Courier, monospace;
+    margin: 1rem;
+    transition: .25s;
+    align-content: center;
+
+}
+
+.desktopCard:hover{
+    transform: scale(1.05);
+}
+.cardDesktopPhoto{
+    width: 20rem;
+    border-radius: 2rem;
+    padding: .5rem;
+    object-fit: cover;
+}
+.innerDesktopCard{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+}
+.learnMore{
+    background-color: #75CDF3;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color:white;
+    border: none;
+    box-shadow: #6f6f6f 3px 3px;
+    width: fit-content;
+    padding: .75rem;
+    border-radius: 2rem;
+    align-self: center;
+}
+.learnMore:hover{
+    cursor:pointer;
+    background-color: white;
+    box-shadow: none;
+    color:black;
+}
+
+.cardColumnContainer{
+    display: flex;
+    justify-content: center;
+}
+.column1.column2{
+    display: flex;
+    flex-direction: column;
+}
+.column2 .desktopCard{
+    background-color: rgb(240, 195, 98);
+}
+
+.column2 .learnMore{
+    background-color: rgb(239, 175, 37);;
+}
+
+.column2 .learnMore:hover{
+    background-color: white;
+}
+
+p{
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 800px) {
+    .desktopCard{
+        flex-direction: row;
+        margin: auto;
+        margin-top: 1rem;
+    }
+    .cardColumnContainer{
+        flex-direction: column;
+    }
+}
