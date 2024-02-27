@@ -106,22 +106,21 @@ function getFinalSelections(){
     formTitle.textContent = "Your exciting adventure!"
     formContainer.appendChild(formTitle);
     let stringConstructor = "";
+    let optionArray = new Array(selections.length)
     formContainer.setAttribute('class', 'formContainer');
-
-    let storageInfo = "";
 
 
     console.log(selections);
     for (let i = 0; i < selections.length-1; i++){
         let pText = document.createElement('p');
         stringConstructor = i+1 + ". " + selections[i].getElementsByTagName('select')[0].value;
-        storageInfo += selections[i].getElementsByTagName('select')[0].value + ","
         pText.textContent = stringConstructor;
         formContainer.appendChild(pText);
     }
 
     //[SAVE WITH COOKIE/LOCALSTORAGE]=====
-        saveRun(storageInfo)
+    let savedArray = Array.from(selections)
+        saveRun(savedArray)
     //====================================
 
     let hThree = document.createElement('h3');
@@ -289,7 +288,9 @@ function saveRun(run){
 		//do localStorage storage
 		if(run){
 			//clicked on something to store
-			localStorage.setItem("lastRun", run);
+            console.log(run )
+            let jsonRun = JSON.stringify(run)
+			localStorage.setItem("lastRun", jsonRun);
 
 		}
 
@@ -310,10 +311,8 @@ const clearbg = (what) =>{
 }
 
 function createHistory(storedItem){
-    let storedArray = storedItem.split(',');
-    console.log(storedArray);
-
-
+    let storedArray = JSON.parse(storedItem)
+    console.log(storedArray[0]);
 }
 
     </script>
