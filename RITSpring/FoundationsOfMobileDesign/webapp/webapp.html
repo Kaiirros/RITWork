@@ -4,67 +4,299 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
-    .header{
-        display: flex;
-        width: 100%;
-        background-color: gray;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
-    .back{
-        width:3rem;
-        height: 3rem;
-        border-radius: .5rem;
-        border-style: none;
+    <script>
+        var shoppingLocations = [
+    {
+       "id":          0,
+       "name":        "Village Gate Square",
+       "image":       "villageGateSquare.jpg",
+       "address":     "274 North Goodman Street, Rochester, NY 14207-1154",
+       "phone":       "(585) 442-9061",
+       "description": "The Village Gate is a vital component of Rochester's Neighborhood of the Arts (NOTA). Unique community of specialty shops, restaurants, loft apartments, art galleries and art studios located in an historic printing factory."
+    },
+    {
+       "id":          1,
+       "name":        "Aaron's Alley",
+       "image":       "aaronsAlley.jpg",
+       "address":     "662 Monroe Ave, Rochester, NY 14607",
+       "phone":       "(585) 244-5044",
+       "description": "Aaron's Alley is your local mom & pop hippie shop located in Rochester, NY - right in the heart of Monroe Ave."
+    },
+    {
+       "id":          2,
+       "name":        "Archimage",
+       "image":       "archimage.jpg",
+       "address":     "668 Monroe Ave, Rochester, NY 14607",
+       "phone":       "(585) 271-2789",
+       "description": "Storied, family-owned gift shop with unique jewelry & clothing, plus toys, books & New Age crystals."
+    },
+    {
+       "id":          3,
+       "name":        "Little Shop of Hoarders",
+       "image":       "littleShopOfHoarders.jpg",
+       "address":     "447 Monroe Ave, Rochester, NY 14607",
+       "phone":       "(585) 730-5374",
+       "description": "Our vibrant, weekly pop up event showcases vintage vendors, local visionaries, and skilled artisans. Explore and unearth your next bold statement piece right here! From timeless classics to locally crafted wonders, find treasures that define your style."
+    },
+ ];
+
+    function loadJSON(){
+        let locations = Object.values(shoppingLocations);
+        locations.forEach((element) => {
+
+            console.log(element["id"])
+
+            //Create Card
+            let card = document.createElement('div');
+            card.setAttribute('class','card')
+
+            //Create Image
+            let image = document.createElement('img');
+            image.setAttribute('class','cardImage')
+            image.setAttribute('src', ("assets/" + element["image"]))
+            card.appendChild(image)
+
+            //Create Name
+            let name = document.createElement('h2');
+            name.setAttribute('class','cardName')
+            let nameConent = document.createTextNode(element["name"])
+            name.appendChild(nameConent);
+            card.appendChild(name)
+
+            //Create Address
+            let address = document.createElement('h3')
+            let addressContent = document.createTextNode(element["address"])
+            address.appendChild(addressContent)
+            card.appendChild(address)
+
+            //Create span for buttons
+            let span = document.createElement('span');
+            span.setAttribute('class','buttonRow')
+            card.appendChild(span)
+
+            //Create favorite button
+            let favButton = document.createElement('button')
+            favButton.setAttribute('class','favoriteButton')
+            span.appendChild(favButton)
+
+            //Create info button
+            let infoButton = document.createElement('button');
+            infoButton.setAttribute('class','infoButton')
+            span.appendChild(infoButton)
+
+            card.appendChild(span)
+
+            document.getElementById('cardContainer').appendChild(card)
+
+
+            
+        });
+
+        /*
+        <div class="card">
+            <img class="cardImage" src="assets/villageGateSquare.jpg">
+            <h2 class="cardName">Village Gate Square</h2>
+            <h3>Address</h3>
+            <span class="buttonRow">
+                <button class="favoriteButton"></button>
+                <button class="infoButton"></button>
+            </span>
+        </div>
+        */
+
+        //Create the card div
+
 
     }
-    .back:hover{
+    </script>
+</head>
+<style>
+    html{
+        background-color: #F1FADA;
+    }
+    body{
+        margin: 0;
+    }
+    .header{
+        padding: 1rem;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 10;
+
+        text-align: center;
+
+        border-bottom: .25rem solid #9AD0C2;
+        background-color: #2D9596;
+        gap: 1rem;
+
+        font-size: 1.25rem;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        
+    }
+
+    .back{
+        background-image: url(assets/reshot-icon-angle-back-8E4DS2MACR.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        position: absolute;
+        left:2rem;
+    }
+
+    .footer{
+        display: flex;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        z-index: 10;
+
+        border-top: .25rem solid #9AD0C2;
+        background-color: #2D9596;
+        justify-content: space-evenly;
+
+    }
+    .primary{
+        width:5rem;
+        height: 5rem;
+        border-radius: .5rem;
+        border-style: none;
+    }
+
+    .primary:hover{
         cursor: pointer;
         background-color: gray;
     }
 
     .cardContainer{
         display: flex;
-        flex-direction: column;
-        margin: auto;
-        margin-top: 3rem;
-        width: 35rem;
+        flex-direction: row;
+
+        flex-wrap: wrap;
+        justify-content: center;
+
+        margin-top: 10rem;
+        margin-bottom: 10rem;
 
     }
     .card{
-        background-color: #dcdcdc;
+        position: relative;
+        background-color: #9AD0C2;
         text-align: center;
         margin: 1rem;
+        border-radius: 1.5rem;
+        box-shadow: 5px 5px 4px #354b45;
+        padding: 1rem;
+        width: 40%;
+        align-self: center;
+
+    }
+    .cardImage{
+        margin: 1rem;
+        height: auto; 
+        max-width: 80%;
+        border-radius: 3rem;
+    }
+    .cardName{
+        position:absolute;
+        background-color: #2D9596;
+        color:white;
+        padding: 1rem;
+        box-shadow: 4px 4px #F1FADA;
+        font-size: 2rem;
+        border-radius: 1rem;
+        top: 3rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: max-content;
     }
 
+    .buttonRow{
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    .favoriteButton, .infoButton{
+        width: 3rem;
+        height: 3rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+    }
+    .favoriteButton{
+        background-image: url(assets/favorite.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    
+    }
+    .favoriteButton:hover{
+        background-image: url(assets/heart-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .infoButton{
+        background-image: url(assets/info.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .favoriteFooter{
+        background-image: url(assets/favorite.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 4rem;
+    }
+    .mapFooter{
+        background-image: url(assets/map.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 4rem;
+    }
+    
+    /*For Mobile View*/
     @media screen and (max-width: 800px) {
         .cardContainer{
-            flex-direction: row;
+            flex-direction: column;
+            align-self: center;
+            margin:auto;
+
+            margin-top: 10rem;
+            margin-bottom: 10rem;
+
+            width: 90%;
+
         }
+        .card{
+            width: fit-content;
+        }
+        .cardName{
+            width: max-content;
+            font-size: 1.5rem;
+        }
+        .header h1{
+            text-align: right;
+            padding-right: 3rem;
+        }
+
     }
 </style>
-<body>
-    <span class="header">
-        <button class="back"></button>
+<body onload="loadJSON()">
+    <header class="header">
+        <button class="back primary"></button>
         <h1>Rochester, NY</h1>
-    </span>
-    <div class="cardContainer">
-        <div class="card">
-            <img src="#">
-            <h2>Name</h2>
-            <h3>Address</h3>
-        </div>
-        <div class="card">
-            <img src="#">
-            <h2>Name</h2>
-            <h3>Address</h3>
-        </div>
+    </header>
+    <div id="cardContainer" class="cardContainer">
 
     </div>
+    <footer class="footer">
+        <button class="primary favoriteFooter"></button>
+        <button class="primary mapFooter"></button>
+    </footer>
     
 </body>
 </html>

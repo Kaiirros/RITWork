@@ -11,7 +11,7 @@ var dinos = [
  function show(){
    
    let boxes = Object.values(dinos);
-console.log(boxes);
-boxes.forEach(element => console.log(element));
+   console.log(boxes);
+   boxes.forEach(element => console.log(element));
    
  }
