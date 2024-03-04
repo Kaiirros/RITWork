@@ -40,6 +40,8 @@
     },
  ];
 
+    var favorites = new Array();
+
     function loadJSON(){
         let locations = Object.values(shoppingLocations);
         locations.forEach((element) => {
@@ -77,6 +79,7 @@
             //Create favorite button
             let favButton = document.createElement('button')
             favButton.setAttribute('class','favoriteButton')
+            favButton.addEventListener('click', function() {favorite(card);})
             span.appendChild(favButton)
 
             //Create info button
@@ -92,22 +95,39 @@
             
         });
 
-        /*
-        <div class="card">
-            <img class="cardImage" src="assets/villageGateSquare.jpg">
-            <h2 class="cardName">Village Gate Square</h2>
-            <h3>Address</h3>
-            <span class="buttonRow">
-                <button class="favoriteButton"></button>
-                <button class="infoButton"></button>
-            </span>
-        </div>
-        */
+    }
 
-        //Create the card div
+    function drawFavorites(){
 
+    let container = document.getElementById('cardContainer')
+    let length = container.childNodes.length;
+    for (let i = 0; i < length; i++){
+        console.log(container.childNodes)
+        container.removeChild(container.childNodes[i])
 
     }
+
+    let iterator = favorites.values()
+    iterator.forEach((element) => {
+        console.log(element)
+    })
+
+    }
+
+    function favorite(card){
+        let button = card.lastChild.firstChild
+
+        if (!favorites.includes(card)){
+            button.setAttribute('class','favoriteActive')
+            favorites.push(card);
+        } else {
+            button.setAttribute('class','favoriteButton')
+            favorites.splice(favorites.indexOf(card), 1)
+        }
+
+        console.log(favorites);
+    }
+
     </script>
 </head>
 <style>
@@ -234,7 +254,13 @@
         background-position: center;
     
     }
-    .favoriteButton:hover{
+
+    .favoriteActive{
+        width: 3rem;
+        height: 3rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
         background-image: url(assets/heart-svgrepo-com.svg);
         background-repeat: no-repeat;
         background-position: center;
@@ -290,11 +316,9 @@
         <button class="back primary"></button>
         <h1>Rochester, NY</h1>
     </header>
-    <div id="cardContainer" class="cardContainer">
-
-    </div>
+    <div id="cardContainer" class="cardContainer"></div>
     <footer class="footer">
-        <button class="primary favoriteFooter"></button>
+        <button class="primary favoriteFooter" onclick="drawFavorites()"></button>
         <button class="primary mapFooter"></button>
     </footer>
     
