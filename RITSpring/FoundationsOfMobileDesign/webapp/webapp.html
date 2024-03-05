@@ -46,6 +46,10 @@
 
         clearDeck()
 
+        if (localStorage.getItem('favorites')){
+            favorites = JSON.parse(localStorage.getItem('favorites'))
+        }
+
         let locations = Object.values(shoppingLocations);
         locations.forEach((element) => {
 
@@ -87,7 +91,17 @@
 
             //Create favorite button
             let favButton = document.createElement('button')
-            favButton.setAttribute('class','favoriteButton')
+
+            //If card is saved in favorites local storage, have card liked already
+
+            console.log(favorites)
+            console.log(element)
+            if (favorites.includes(element)){
+                console.log("INCLUDES")
+                favButton.setAttribute('class','favoriteActive')
+            } else {
+                favButton.setAttribute('class','favoriteButton')
+            }
             favButton.addEventListener('click', function() {favorite(element['id'], favButton);})
             span.appendChild(favButton)
 
@@ -124,8 +138,6 @@
             })
         }
 
-
-
     }
 
 
@@ -141,7 +153,6 @@
             button.setAttribute('class','favoriteButton')
             favorites.splice(favorites.indexOf(json), 1)
         }
-        console.log(favorites)
 
         localStorage.removeItem('favorites');
         localStorage.setItem("favorites", JSON.stringify(favorites))
@@ -158,7 +169,7 @@
         margin: 0;
     }
     .header{
-        padding: 1rem;
+        padding: .5rem;
         position: fixed;
         top: 0px;
         width: 100%;
@@ -182,6 +193,7 @@
 
         position: absolute;
         left:2rem;
+        top:2rem;
     }
 
     .footer{
@@ -199,8 +211,8 @@
 
     }
     .primary{
-        width:5rem;
-        height: 5rem;
+        width:3rem;
+        height: 3rem;
         border-radius: .5rem;
         border-style: none;
         box-shadow: 4px 4px 4px;
@@ -300,19 +312,19 @@
         background-image: url(assets/favorite.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 4rem;
+        background-size: 3rem;
     }
     .mapFooter{
         background-image: url(assets/map.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 4rem;
+        background-size: 3rem;
     }
     .menuFooter{
         background-image: url(assets/menu.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 4rem;
+        background-size: 3rem;
     }
     
     /*For Mobile View*/
@@ -325,7 +337,7 @@
             margin-top: 10rem;
             margin-bottom: 10rem;
 
-            width: 90%;
+            width: 80%;
 
         }
         .card{
