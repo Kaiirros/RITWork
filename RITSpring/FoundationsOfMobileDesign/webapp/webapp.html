@@ -40,13 +40,22 @@
     },
  ];
 
-    var favorites = new Array();
+    var favorites = [];
 
     function loadJSON(){
+
+        clearDeck()
+
         let locations = Object.values(shoppingLocations);
         locations.forEach((element) => {
 
-            console.log(element["id"])
+            cardCreator(element)
+            
+        });
+
+    }
+
+    function cardCreator(element){
 
             //Create Card
             let card = document.createElement('div');
@@ -79,7 +88,7 @@
             //Create favorite button
             let favButton = document.createElement('button')
             favButton.setAttribute('class','favoriteButton')
-            favButton.addEventListener('click', function() {favorite(card);})
+            favButton.addEventListener('click', function() {favorite(element['id'], favButton);})
             span.appendChild(favButton)
 
             //Create info button
@@ -89,43 +98,54 @@
 
             card.appendChild(span)
 
-            document.getElementById('cardContainer').appendChild(card)
+            document.getElementById('cardContainer').appendChild(card); 
+    }
 
+    function clearDeck(){
+        let container = document.getElementById('cardContainer')
+        let length = container.childNodes.length;
 
-            
-        });
-
+        //DELETE ALL CARDS PREVIOUSLY ON SCREEN TO REDRAW
+        for (let i = 0; i < length; i++){
+            let card = document.querySelector('.card')
+            container.removeChild(card);
+        }
     }
 
     function drawFavorites(){
 
-    let container = document.getElementById('cardContainer')
-    let length = container.childNodes.length;
-    for (let i = 0; i < length; i++){
-        console.log(container.childNodes)
-        container.removeChild(container.childNodes[i])
+        clearDeck()
 
-    }
+        if(localStorage.getItem('favorites')){
 
-    let iterator = favorites.values()
-    iterator.forEach((element) => {
-        console.log(element)
-    })
-
-    }
-
-    function favorite(card){
-        let button = card.lastChild.firstChild
-
-        if (!favorites.includes(card)){
-            button.setAttribute('class','favoriteActive')
-            favorites.push(card);
-        } else {
-            button.setAttribute('class','favoriteButton')
-            favorites.splice(favorites.indexOf(card), 1)
+            let locations = JSON.parse(localStorage.getItem('favorites'));
+            locations.forEach((element) => {
+                cardCreator(element)
+            })
         }
 
-        console.log(favorites);
+
+
+    }
+
+
+    function favorite(id, button){
+
+        let json = shoppingLocations[id]
+
+        if (!favorites.includes(json)){
+            button.setAttribute('class','favoriteActive')
+            favorites.push(json);
+
+        } else {
+            button.setAttribute('class','favoriteButton')
+            favorites.splice(favorites.indexOf(json), 1)
+        }
+        console.log(favorites)
+
+        localStorage.removeItem('favorites');
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+
     }
 
     </script>
@@ -183,11 +203,13 @@
         height: 5rem;
         border-radius: .5rem;
         border-style: none;
+        box-shadow: 4px 4px 4px;
     }
 
     .primary:hover{
         cursor: pointer;
         background-color: gray;
+        box-shadow: none;
     }
 
     .cardContainer{
@@ -208,7 +230,10 @@
         margin: 1rem;
         border-radius: 1.5rem;
         box-shadow: 5px 5px 4px #354b45;
-        padding: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
         width: 40%;
         align-self: center;
 
@@ -283,6 +308,12 @@
         background-position: center;
         background-size: 4rem;
     }
+    .menuFooter{
+        background-image: url(assets/menu.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 4rem;
+    }
     
     /*For Mobile View*/
     @media screen and (max-width: 800px) {
@@ -319,6 +350,7 @@
     <div id="cardContainer" class="cardContainer"></div>
     <footer class="footer">
         <button class="primary favoriteFooter" onclick="drawFavorites()"></button>
+        <button class="primary menuFooter" onclick="loadJSON()"></button>
         <button class="primary mapFooter"></button>
     </footer>
     
