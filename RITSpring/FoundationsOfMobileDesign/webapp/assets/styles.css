@@ -1,0 +1,251 @@
+html{
+    background-color: #F1FADA;
+}
+body{
+    margin: 0;
+}
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+
+    text-align: center;
+
+    border-bottom: .25rem solid #9AD0C2;
+    background-color: #2D9596;
+    gap: 1rem;
+
+    font-size: 1.25rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+.information{
+    position: fixed;
+    top:15%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    transform: translate(-50%, 0);
+    background-color: #9AD0C2;
+    box-shadow: 4px 4px 10px #212c29;
+    width: 70%;
+    z-index: 20;
+    padding:2rem;
+    border-radius: 1.5rem;
+
+}
+.informationImage{
+    text-align: center;
+    float: right;
+    width: 50%;
+    object-fit:contain;
+    aspect-ratio: 1/1;
+    padding: .5rem;
+}
+.informationParagraph{
+    font-size: 2rem;
+}
+.informationName{
+    font-size: 2rem;
+}
+.closeButton{
+    cursor: pointer;
+    position: absolute;
+    top:10px;
+    right:10px;
+    border-radius: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: lightcoral;
+}
+
+.back{
+    background-image: url(reshot-icon-angle-back-8E4DS2MACR.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+    left:2rem;
+    top:2rem;
+}
+
+.footer{
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    z-index: 10;
+
+    border-top: .25rem solid #9AD0C2;
+    background-color: #2D9596;
+    justify-content: space-evenly;
+
+}
+.primary{
+    width:3rem;
+    height: 3rem;
+    border-radius: .5rem;
+    border-style: none;
+    box-shadow: 4px 4px 4px;
+}
+
+.primary:active{
+    cursor: pointer;
+    background-color: gray;
+    box-shadow: none;
+}
+
+.cardContainer{
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+
+}
+.card{
+    position: relative;
+    background-color: #9AD0C2;
+    text-align: center;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 5px 5px 4px #354b45;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    width: 40%;
+    align-self: center;
+
+}
+.cardImage{
+    margin: 1rem;
+    height: auto; 
+    max-width: 80%;
+    border-radius: 3rem;
+    text-align: center;
+}
+.cardName{
+    position:absolute;
+    background-color: #2D9596;
+    color:white;
+    padding: 1rem;
+    box-shadow: 4px 4px #F1FADA;
+    font-size: 2rem;
+    border-radius: 1rem;
+    top: 3rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: max-content;
+}
+
+.buttonRow{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.favoriteButton, .infoButton{
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+.favoriteButton{
+    background-image: url(favorite.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.favoriteActive{
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url(heart-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.infoButton{
+    background-image: url(info.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.favoriteFooter{
+    background-image: url(favorite.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+}
+.mapFooter{
+    background-image: url(map.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+}
+.menuFooter{
+    background-image: url(menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+}
+
+
+/*For Mobile View*/
+@media screen and (max-width: 800px) {
+    .cardContainer{
+        flex-direction: column;
+        align-self: center;
+        margin:auto;
+
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+
+        width: 80%;
+
+    }
+    .card{
+        width: fit-content;
+    }
+    .cardName{
+        width: max-content;
+        font-size: 1.5rem;
+    }
+    .header h1{
+        text-align: right;
+        padding-right: 3rem;
+    }
+
+    .information{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        justify-content: center;
+        margin:auto;
+    }
+    .informationImage{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        float:none;
+    }
+    .informationParagraph{
+        font-size: 1.25rem;
+    }
+    .informationName{
+        font-size: 1.5rem;
+    }
+
+}
