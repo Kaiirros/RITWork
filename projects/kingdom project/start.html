@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+
+    const countries = [
+
+        england: {
+            "name": "Kingdom of England",
+            "capital": "London",
+            "religion": "Roman Catholicism",
+            "demonym": "English",
+            "government": "Monarchy",
+            "ruler": "King of England",
+            "flag": "img",
+            "pop": 34
+        },
+
+        scotland: {
+            "name": "Kingdom of Scotland",
+            "capital": "Dunfermline",
+            "religion": "Roman Catholicism",
+            "demonym": "Scottish",
+            "government": "Monarchy",
+            "ruler": "King of Scotland",
+            "flag": "img",
+            "pop": 12
+        }
+
+    ]
+
+
+    function selectRegion(selection){
+
+        let len = Object.keys(countries).length
+
+        for (let i=0; i < len; i++){
+            console.log(countries[0])
+            var option = new Option(countries[i]['name'])
+            option.setAttribute('class','option')
+            selection.add(option);
+        }
+    }
+
+
+function startGame(){
+
+    let startBox = document.createElement('div')
+    let formBox = document.createElement('form')
+
+
+    startBox.setAttribute('class','startBox')
+
+    let nameInput = document.createElement('input')
+    nameInput.setAttribute('type','text')
+    nameInput.setAttribute('name','name')
+    nameInput.setAttribute('id','name')
+    nameInput.setAttribute('autocomplete','off')
+
+
+    let nameLabel = document.createElement('label')
+    let nameContent = document.createTextNode("Ruler name: ")
+    nameLabel.appendChild(nameContent);
+
+    nameLabel.appendChild(nameInput)
+    formBox.appendChild(nameLabel)
+
+
+    let select = document.createElement('select')
+
+    selectRegion(select);
+
+    let selectLabel = document.createElement('label')
+    let selectTextLabel = document.createTextNode("Ruler name: ")
+    selectLabel.appendChild(selectTextLabel);
+
+    formBox.appendChild(select)
+    
+    startBox.appendChild(formBox)
+    document.getElementsByTagName('body')[0].appendChild(startBox)
+
+
+
+}
+
+
+</script>    
+<body onload="startGame()">
+    
+</body>
+</html>
