@@ -1,0 +1,82 @@
+[
+    {
+       "id":          0,
+       "name":        "Village Gate Square",
+       "image":       "villageGateSquare.jpg",
+       "address":     "274 North Goodman Street, Rochester, NY 14207-1154",
+       "phone":       "(585) 442-9061",
+       "description": "The Village Gate is a vital component of Rochester's Neighborhood of the Arts (NOTA). Unique community of specialty shops, restaurants, loft apartments, art galleries and art studios located in an historic printing factory."
+    },
+    {
+       "id":          1,
+       "name":        "Aaron's Alley",
+       "image":       "aaronsAlley.jpg",
+       "address":     "662 Monroe Ave, Rochester, NY 14607",
+       "phone":       "(585) 244-5044",
+       "description": "Aaron's Alley is your local mom & pop hippie shop located in Rochester, NY - right in the heart of Monroe Ave."
+    },
+    {
+       "id":          2,
+       "name":        "Archimage",
+       "image":       "archimage.jpg",
+       "address":     "668 Monroe Ave, Rochester, NY 14607",
+       "phone":       "(585) 271-2789",
+       "description": "Storied, family-owned gift shop with unique jewelry & clothing, plus toys, books & New Age crystals."
+    },
+    {
+       "id":          3,
+       "name":        "Little Shop of Hoarders",
+       "image":       "littleShopOfHoarders.jpg",
+       "address":     "447 Monroe Ave, Rochester, NY 14607",
+       "phone":       "(585) 730-5374",
+       "description": "Our vibrant, weekly pop up event showcases vintage vendors, local visionaries, and skilled artisans. Explore and unearth your next bold statement piece right here! From timeless classics to locally crafted wonders, find treasures that define your style."
+    },
+    {
+      "id":          4,
+      "name":        "Gateway Plaza",
+      "image":       "gatewayPlaza.jpg",
+      "address":     "2368 Lyell Ave, Rochester, NY 14606",
+      "phone":       "(646) 830-0339",
+      "description": "Gateway Plaza Shopping Center is a mall in Town of Gates, Rochester and Suburbs, New York. Gateway Plaza Shopping Center is situated nearby to the hamlet Gates Center and the town North Gates."
+   },
+   {
+      "id":          5,
+      "name":        "Irondequoit Plaza",
+      "image":       "irondequoitPlaza.jpg",
+      "address":     "525 Titus Ave, Rochester, NY 14617",
+      "phone":       "No Phone Number Provided",
+      "description": "No description (Also for sale!)"
+   },
+   {
+      "id":          6,
+      "name":        "Wegmans",
+      "image":       "wegmans.jpg",
+      "address":     "1750 East Ave, Rochester, NY 14610",
+      "phone":       "(585) 244-7950",
+      "description": "Wegmans is an award-winning supermarket offering online ordering for fresh groceries and prepared foods with convenient delivery & curbside pickup."
+   },
+   {
+      "id":          7,
+      "name":        "Fasion House and Grocery",
+      "image":       "fashionHouseAndGrocery.jpg",
+      "address":     "400 Jefferson Rd, Rochester, NY 14623",
+      "phone":       "(585) 270-4003",
+      "description": "House of Fasion and Groceries!"
+   },
+   {
+      "id":          8,
+      "name":        "AMVETS",
+      "image":       "amvets.jpg",
+      "address":     "400 Jefferson Rd, Rochester, NY 14623",
+      "phone":       "(585) 424-3730",
+      "description": "Our main goal is to serve American Veterans who served our country. AMVETS National Service Foundation provides support to Veterans through service programs as well as providing community and youth-oriented programs designed to promote unity and patriotism. It counsels and represents Veterans and their dependents before the Veterans Administration without charge."
+   },
+   {
+      "id":          9,
+      "name":        "Twelve Corners Plaza Brighton",
+      "image":       "twelveCorners.jpg",
+      "address":     "1892 Monroe Ave, Rochester, NY 14618",
+      "phone":       "(585) 442-3080",
+      "description": "No description provided"
+   }
+ ]
